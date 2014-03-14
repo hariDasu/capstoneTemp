@@ -85,14 +85,12 @@
     </div>
   </div>
 </div>
-            <div class="panel-heading"><b>Properties</b></div>
-            <a href="addEntry.html">Add entry to list...</a><br><br>
-<button class="pull-left btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Sign in...
-</button>
+            <div class="panel-heading"><h2><b>Properties</b></h2></div>
+           
+
   <!-- Table -->
-            <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
+            <form class="navbar-form" role="form">
+            <div class="form-group pull-right">
               <input type="search" placeholder="Search..." class="form-control">
                 <select class="form-control">
                   <option>Street</option>
@@ -101,10 +99,15 @@
                   <option>Lane</option>
                   <option>Drive</option>
                 </select>
-                
+<button type="submit" class="btn btn-success">Go</button>
             </div>
-            <button type="submit" class="btn btn-success">Go</button>
-            </form>
+                </form>
+            <button class="navbar-left btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Sign in...
+</button>&nbsp;
+                 <button class="btn btn-default" href="addEntry.html">Add entry to list...</button>
+            <br><br>
+            
   <table class="table table-hover table-bordered">
     <tr> <td>AddNum</td>
         <td>Street</td>
