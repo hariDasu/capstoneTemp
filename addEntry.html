@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-switch.css" rel="stylesheet">
 
     
    
@@ -26,7 +27,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
+    
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -54,9 +55,9 @@
     <form class="form-horizontal" role="form">
     <div class="col-sm-6">
   <div class="form-group">
-    <label for="inputAddNum" class="col-sm-3 control-label">AddNum</label>
+    <label for="inputAddNum" class="col-sm-3 control-label">Block</label>
     <div class="col-sm-9">
-      <input  class="form-control" id="inputAddNum" placeholder="AddNum">
+      <input  class="form-control" id="inputAddNum" placeholder="Block">
     </div>
   </div>
   <div class="form-group">
@@ -66,7 +67,7 @@
     </div>
   </div>
       <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Block</label>
+    <label for="inputStreet" class="col-sm-3 control-label">Ward</label>
     <div class="col-sm-9">
       <input type="password" class="form-control" id="inputStreet" placeholder="Block">
     </div>
@@ -80,88 +81,50 @@
       <input  class="form-control" id="inputAddNum" placeholder="Lot">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Ward</label>
+
+      
+     
+         </div>
+      
+      <div class="col-sm-6">
+
+          <div class="form-group">
+    <label for="inputStreet" class="col-sm-3 control-label">Boarded</label>
     <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Ward">
-    </div>
+              <div class="btn-group btn-toggle"> 
+    <button class="btn btn-default">YES</button>
+    <button class="btn btn-primary active">NO</button>
   </div>
+        </div>
+              </div>
+      
+    
+
+      
       <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">1st Notice</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="1st notice">
-    </div>
+    <label for="inputStreet" class="col-sm-3 control-label">Sign Posted</label>
+    <div class="col-sm-9"><div class="btn-group btn-toggle"> 
+    <button class="btn btn-default">YES</button>
+    <button class="btn btn-primary active">NO</button>
   </div>
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">2nd Notice</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="2nd notice">
-    </div>
-  </div>
-      <div class="form-group">
+          </div>
+          </div>
+          
+      
+           <div class="form-group">
     <label for="inputStreet" class="col-sm-3 control-label">Property Description</label>
     <div class="col-sm-9">
       <input type="password" class="form-control" id="inputStreet" placeholder="Property Description">
     </div>
   </div>
-         </div>
-      
-      <div class="col-sm-6">
       <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Owner First Name</label>
+    <label for="inputStreet" class="col-sm-3 control-label">Comments</label>
     <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Owner First Name">
+      <input type="password" class="form-control" id="inputStreet" placeholder="Comments...">
     </div>
   </div>
+   
       
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Owner Last Name</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Owner Last Name">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Social Security</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Social Security">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Address</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Address">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">City</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="City">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">State</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="State">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Home Phone</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Home Phone">
-    </div>
-  </div>
-      
-      <div class="form-group">
-    <label for="inputStreet" class="col-sm-3 control-label">Cell Phone</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputStreet" placeholder="Cell Phone">
-    </div>
-  </div>
         </div>
         </div>
   
@@ -189,6 +152,35 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script>
+        $( document ).ready(function() {
+    $('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active');  
+    
+    if ($(this).find('.btn-primary').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-primary');
+    }
+    if ($(this).find('.btn-danger').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-danger');
+    }
+    if ($(this).find('.btn-success').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-success');
+    }
+    if ($(this).find('.btn-info').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-info');
+    }
+    
+    $(this).find('.btn').toggleClass('btn-default');
+       
+});
+
+$('form').submit(function(){
+	//alert($(this["options"]).val());
+    return false;
+});
+});
+    </script>
     
   </body>
 </html>
