@@ -71,13 +71,16 @@
         <h4 class="modal-title" id="myModalLabel">Sign In</h4>
       </div>
       <div class="modal-body">
-        <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
+        <form action="login/auth.php" method="post" accept-charset="UTF-8">
                   <input id="user_username"  type="text" name="user[username]" size="30" placeholder="E-mail..." /><br>
                   <input id="user_password" type="password" name="user[password]" size="30" placeholder="password..."/><br><br>
                   <!--<input id="user_remember_me"  type="checkbox" name="user[remember_me]" value="1" />-->
                   <label class="string optional" for="user_remember_me"> Remember me&nbsp;</label><div class="btn-group btn-toggle"> 
     <button class="btn btn-sm">YES</button>
     <button class="btn btn-sm btn-primary active">NO</button>
+<br>
+<a href="#" data-toggle="modal"data-dismiss="#modal" data-target="#newUser">New User?</a>
+
   </div>
                 
                   
@@ -88,6 +91,36 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <input type="button submit" class="btn btn-primary" name="commit" value="Sign in">
+      </div>
+    </div>
+  </div>
+</div>
+
+            <div class="text-center modal fade" id="newUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="newUserLabel">User Registration</h4>
+      </div>
+      <div class="modal-body">
+        <form id="register" action="login/register.php" method="post" accept-charset="UTF-8">
+                  <input id="username"  type="text" name="username" size="30" placeholder="User Name" /><br>
+                  <input id="password" type="password" name="password" size="30" placeholder="Password..."/><br>
+                  <input id="firstname"  type="text" name="firstname" size="30" placeholder="First  Name" /><br>
+                  <input id="lastname"  type="text" name="lastname" size="30" placeholder="Last Name" /><br>
+                  <input id="emailaddr"  type="text" name="emailaddr" size="30" placeholder="E-mail Address" /><br><br>
+
+<a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+  </div>
+                
+                  
+    
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="button submit" class="btn btn-primary" name="register" value="Submit">
       </div>
     </div>
   </div>
