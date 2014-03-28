@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
 
       <footer class="footer">
-          <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+          <nav class="navbar navbar-inverse" role="navigation">
 
 
         <p><a href="contact.php">&nbsp;&nbsp;Contact Us</a></p>
