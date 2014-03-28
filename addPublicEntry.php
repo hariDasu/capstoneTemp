@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-    <br><br><br>
+    
     
 
 
@@ -172,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       
 
-      <footer class="footer">
+      <footer class="footer" id="footer">
           <nav class="navbar navbar-inverse" role="navigation">
 
 
