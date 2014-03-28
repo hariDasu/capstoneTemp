@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
       
   </head>
 
@@ -67,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Main  -->
     
 
-    <div class="container clear-top">
+    <div id="content" class="container clear-top">
       <div class="row">
           <div class="col md-12">
         
