@@ -168,10 +168,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </div>
       
-      <hr>
+      
 
       <footer>
-        <p><a href="contact.php">Contact Us</a></p>
+        <p><a href="contact.php">&nbsp;Contact Us</a></p>
       </footer>
     </div> <!-- /container -->
 
