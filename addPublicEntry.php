@@ -66,12 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Main  -->
     
 
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
+          <div class="col md-12">
         
         <br><br><br>
         <br>
         <a href="index.html">Go back... </a>  
+              </div>
       </div>  
 
 
