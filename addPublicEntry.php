@@ -157,16 +157,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               
             </div>
           </form><!--form collapse-->
-          <div class="col-md-10">
-          <ul class="nav">
-      <li class="contact "><a href="contact.php">Contact Us</a></li>
-      </ul></a>   
-          </div>
+          
+          
+          
       </div>    
     </div>
       
 
-      <a>
+     
         
 
 </div>
@@ -174,7 +172,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <ul class="nav">
+      <li class="contact "><a href="contact.php">Contact Us</a></li>
+      </ul>   
       </footer>
     </div> <!-- /container -->
 
