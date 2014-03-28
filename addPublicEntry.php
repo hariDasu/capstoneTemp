@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
+      <link href="css/main.css" rel=stylesheet>
   </head>
 
   <body>
@@ -65,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Main  -->
     
-
-    <div class="container">
+<div  id="wrap">
+    <div class="container clear-top">
       <div class="row">
           <div class="col md-12">
         
@@ -161,23 +162,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           
       </div>    
     </div>
+    </div>
       
 
    
         
 
-</div>
+
       
       
 
-      <footer>
+      <footer class="footer">
           <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
 
 
-        <p><a href="contact.php">&nbsp;Contact Us</a></p>
+        <p><a href="contact.php">&nbsp;&nbsp;Contact Us</a></p>
               </nav>
       </footer>
-    </div> <!-- /container -->
+  
 
 
     <!-- Bootstrap core JavaScript
