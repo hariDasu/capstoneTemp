@@ -74,11 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <a href="index.html">Go back... </a>  
               </div>
-      </div>  
-
-
-
-      <div class="row">
+      
           <form action="upload.php" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
            <div class="col-xs-6 col-xs-offset-3">
@@ -163,13 +159,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </form><!--form collapse-->
       </div>    
     </div>
+      
 
       <a>
       <ul class="nav">
       <li class="contact "><a href="contact.php">Contact Us</a></li>
       </ul></a>     
 
-
+</div>
       
       <hr>
 
