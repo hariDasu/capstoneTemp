@@ -157,9 +157,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               
             </div>
           </form><!--form collapse-->
+          <div class="col-md-10">
           <ul class="nav">
       <li class="contact "><a href="contact.php">Contact Us</a></li>
       </ul></a>   
+          </div>
       </div>    
     </div>
       
