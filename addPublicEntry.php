@@ -159,12 +159,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </form><!--form collapse-->
           
           
-          
       </div>    
     </div>
       
 
-     
+   
         
 
 </div>
@@ -172,9 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <hr>
 
       <footer>
-        
-    <a href="contact.php">Contact Us</a>
-       
+        <p><a href="contact.php">Contact Us</a></p>
       </footer>
     </div> <!-- /container -->
 
