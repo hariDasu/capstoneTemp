@@ -172,9 +172,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <hr>
 
       <footer>
-        <ul class="nav">
-      <li class="contact "><a href="contact.php">Contact Us</a></li>
-      </ul>   
+        
+    <a href="contact.php">Contact Us</a>
+       
       </footer>
     </div> <!-- /container -->
 
