@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>
                  
                 
-              
+              <br><br><br>
               
             </div>
           </form><!--form collapse-->
