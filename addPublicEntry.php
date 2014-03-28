@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
-      <link href="css/main.css" rel="stylesheet">
+      
       
   </head>
 
@@ -174,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
 
       <footer class="footer" id="footer">
-          <nav class="navbar navbar-inverse" role="navigation">
+          <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
 
 
         <p><a href="contact.php">&nbsp;&nbsp;Contact Us</a></p>
