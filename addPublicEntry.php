@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
       
       
   </head>
@@ -155,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>
                  
                 
-              <br><br><br>
+            
               
             </div>
           </form><!--form collapse-->
