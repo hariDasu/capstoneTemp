@@ -42,7 +42,41 @@
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="text-center modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+        <form id="login" action="auth.php" method="post" accept-charset="UTF-8">
+      <div class="modal-body">
+        
+                  <input id="username"  type="text" name="username" size="30" placeholder="Username..." /><br>
+                  <input id="password" type="password" name="password" size="30" placeholder="Password..."/><br><br>
+                  <!--<input id="user_remember_me"  type="checkbox" name="user[remember_me]" value="1" />-->
+                     <br>
+            
+                
+                  
     
+                  <p class="text-center">Entry for authorized City of Paterson Personnel only</p>
+            
+          
+
+      </div>
+      <div class="modal-footer">
+          <a href="register.html">
+          
+              </a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit button" class="button btn btn-primary" name="login" value="submit">
+          
+      </div>
+            </form>
+    </div>
+  </div>
+</div> 
 
     <div class="container">
       <!-- Example row of columns -->
@@ -51,47 +85,29 @@
             <br><br><br>
             <br>
             <a href="index.html">Go back...</a>
-          <h2>New User Registration</h2>
+          <h2>Sign-In...</h2>
 <div class="row">
-    <form id="login" action="register.php" method="post" accept-charset="UTF-8" class="form-horizontal" role="form">
+    <form id="login" action="auth.php" method="post" accept-charset="UTF-8" class="form-horizontal" role="form">
         
     <div class="col-sm-6">
   <div class="form-group">
     <label for="inputUserName" class="col-sm-3 control-label">User Name</label>
     <div class="col-sm-9">
-      <input id="username" class="form-control" id="inputAddNum" placeholder="User Name...">
+      <input id="username" type="text" class="form-control" id="inputAddNum" placeholder="User Name...">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+    <label for="inputPassword"  class="col-sm-3 control-label">Password</label>
     <div class="col-sm-9">
-      <input id="password" type="text" name="password" class="form-control" id="password" placeholder="Password...">
-    </div>
-  </div>
-      <div class="form-group">
-    <label for="inputFname" class="col-sm-3 control-label">First Name</label>
-    <div class="col-sm-9">
-      <input id="firstname" type="text" name="firstname" class="form-control" placeholder="First Name">
+      <input id="password" type="password" name="password" class="form-control" id="password" placeholder="Password...">
     </div>
   </div>
       
-<div class="form-group">
-    <label for="inputLname" class="col-sm-3 control-label">Last Name</label>
-    <div class="col-sm-9">
-      <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Last Name">
-    </div>
-  </div>     
 
-          
-  <div class="form-group">
-    <label for="inputEmail" class="col-sm-3 control-label">E-mail Address</label>
-    <div class="col-sm-9">
-      <input id="emailaddr" class="form-control" type="text" name="emailaddr" placeholder="E-mail address">
-    </div>
-  </div>
 
       <div class="form-group">
     <div class="col-sm-12">
+        <input type="button" class="pull-left btn btn-success" value="New User?">
       <input type="submit" name="login" value="submit" class="button btn btn-default pull-right">
     </div>
   </div>

@@ -23,7 +23,7 @@ Password: '.$password.'
 ------------------------
  
 Please click this link to activate your account:
-http://pytools.webfactional.com/login_skeleton/verify.php?email='.$email.'&hash='.$hash.'
+http://pytools.webfactional.com/capstonTemp/verify.php?email='.$email.'&hash='.$hash.'
  
 ';
 
@@ -83,7 +83,7 @@ function send_email($email, $subject, $msg)
 
 	//$data_string = json_encode($data);
 	$crl=curl_init();
-	curl_setopt($crl, CURLOPT_URL,"http://pytools.webfactional.com/login_skeleton/send_confirmation.php");
+	curl_setopt($crl, CURLOPT_URL,"http://pytools.webfactional.com/capstoneTemp/send_confirmation.php");
 	//curl_setopt($crl, CURLOPT_POST, 1);
 	curl_setopt($crl, CURLOPT_POSTFIELDS, $data/*_string*/ );
 	//curl_setopt($crl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
