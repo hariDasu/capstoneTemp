@@ -73,14 +73,7 @@
                   <input id="username"  type="text" name="username" size="30" placeholder="Username..." /><br>
                   <input id="password" type="password" name="password" size="30" placeholder="Password..."/><br><br>
                   <!--<input id="user_remember_me"  type="checkbox" name="user[remember_me]" value="1" />-->
-                  <label class="string optional" for="user_remember_me"> Remember me&nbsp;</label><div class="btn-group btn-toggle"> 
-    <button class="btn btn-sm">YES</button>
-    <button class="btn btn-sm btn-primary active">NO</button>
-<br>
-
-
-  </div>
-            <br>
+                     <br>
             
                 
                   
@@ -95,7 +88,7 @@
           <button type="button" class="pull-left btn btn-success">New User?</button>
               </a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <input type="button submit" class="btn btn-primary" name="login" value="submit">
+        <input type="button submit" class="button btn btn-primary" name="login" value="submit">
           
       </div>
             </form>
@@ -225,25 +218,7 @@
     <script src="js/bootstrap-switch.js"></script>
 <script>
         $( document ).ready(function() {
-    $('.btn-toggle').click(function() {
-    $(this).find('.btn').toggleClass('active');  
     
-    if ($(this).find('.btn-primary').size()>0) {
-    	$(this).find('.btn').toggleClass('btn-primary');
-    }
-    if ($(this).find('.btn-danger').size()>0) {
-    	$(this).find('.btn').toggleClass('btn-danger');
-    }
-    if ($(this).find('.btn-success').size()>0) {
-    	$(this).find('.btn').toggleClass('btn-success');
-    }
-    if ($(this).find('.btn-info').size()>0) {
-    	$(this).find('.btn').toggleClass('btn-info');
-    }
-    
-    $(this).find('.btn').toggleClass('btn-default');
-       
-});
 
 $('#login').submit(function(){
 	console.log($(this));
