@@ -27,10 +27,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<script>
-   $('#user[remember_me]').bootstrapSwitch();
-    
-    </script>
+
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -223,7 +220,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-switch.js"></script>
 <script>
@@ -253,6 +250,9 @@ $('#login').submit(function(){
     return false;
 });
 });
+   $('#user[remember_me]').bootstrapSwitch();
+    
+   
     </script>
     
   </body>
