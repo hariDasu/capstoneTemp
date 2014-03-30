@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
+    
     <title>Abandoned Properties in Paterson</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
-
+      <link href="css/jquery.dataTables.css" rel="stylesheet">
     
    
 
@@ -119,7 +119,7 @@
                  <a href="addPublicEntry.php"><button class="btn btn-default" >Add entry to list...</button></a>
             <br><br>
     
-  <table id="prettyTable "class="display datatable table table-hover table-bordered">
+  <table id="prettyTable" class="display datatable table table-hover table-bordered">
       
       <thead>
           <tr>
@@ -162,6 +162,8 @@
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-switch.js"></script>
+      <script src="js/DataTables.js"></script>
+      <script src="js/jquery.dataTables.js"></script>
 <script>
         $( document ).ready(function() {
     $('#prettyTable').dataTable({
