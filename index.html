@@ -162,6 +162,10 @@
       <script src="js/jquery.dataTables.js"></script>
 <script>
         $( document ).ready(function() {
+            $('#login').submit(function(){
+	console.log($(this));
+    return false;
+});
     $('#prettyTable').dataTable({
         "aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
         "iDisplayLength" : 10,
@@ -170,10 +174,7 @@
         "sAjaxSource": "listOwners2.php"
     });
 
-/*$('#login').submit(function(){
-	console.log($(this));
-    return false;
-});*/
+
 });
  
     
