@@ -5,7 +5,7 @@
 -- 
 
 CREATE TABLE `PROPERTY` (
-	`PROPID` int(10) NOT NULL auto_increment,
+	`id` int(10) NOT NULL auto_increment,
 	`BLOCK` varchar(255) default NULL,
 	`LOT` varchar(255) default NULL,
 	`WARD` varchar(255) default NULL,
@@ -17,6 +17,6 @@ CREATE TABLE `PROPERTY` (
 	`BOARDED` varchar(255) default NULL,
 	`PDESC` varchar(255) default NULL,
 	`LCOMMENT` varchar(255) default NULL,
-	PRIMARY KEY  (`PROPID`)
+	PRIMARY KEY  (`id`)
 );
 

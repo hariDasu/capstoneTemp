@@ -83,6 +83,9 @@ $(document).ready(function() {
 				"mData": "WARD"
 			},
 			{
+				"mData": "ADDRNUM"
+			},
+			{
 				"mData": "STREET"
 			},
 			{
@@ -98,13 +101,10 @@ $(document).ready(function() {
 				"mData": "BOARDED"
 			},
 			{
-				"mData": "SPOST"
+				"mData": "PDESC"
 			},
 			{
 				"mData": "LCOMMENT"
-			},
-			{
-				"mData": "PDESC"
 			}
 		],
 		"oTableTools": {

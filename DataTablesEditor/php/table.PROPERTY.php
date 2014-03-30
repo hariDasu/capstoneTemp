@@ -18,12 +18,12 @@ use
 
 
 // Build our Editor instance and process the data coming from _POST
-Editor::inst( $db, 'PROPERTY' ,'PROPID')
+Editor::inst( $db, 'PROPERTY','PROPID' )
 	->fields(
 		Field::inst( 'BLOCK' ),
 		Field::inst( 'LOT' ),
 		Field::inst( 'WARD' ),
-        Field::inst( 'ADDRNUM' ),
+		Field::inst( 'ADDRNUM' ),
 		Field::inst( 'STREET' ),
 		Field::inst( 'CITY' ),
 		Field::inst( 'ZIP' ),
