@@ -43,7 +43,19 @@
 						print("<tr>
 						<td><a href='editNotice.php?noticeid=".$value["NOTICEID"]."'>Edit</a>
 						<a href='deletenot.php?id=".$value["NOTICEID"]."' onclick=\"return confirm('Remove ".$value["NOTICEID"]."?');\">Delete</a></td>
-						<td>".$value["FNAME"]." </td> <td>".$value["NTYPE"]." </td> <td> ".$value["SDATE"]."</td> <td>".$value["NOTES"]." </td></tr>");			
+						<td>".$value["FNAME"]." </td> <td>");
+						switch ($value["NTYPE"]){
+							case "1":
+								print( "Notification");
+								break;
+							case "2":
+								print( "Invoice");
+								break;
+							case "3":
+								print( "Court Summons");
+								break;
+						}
+						print("</td> <td> ".$value["SDATE"]."</td> <td>".$value["NOTES"]." </td></tr>");			
 				}
 			}
 			else

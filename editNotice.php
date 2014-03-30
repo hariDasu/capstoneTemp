@@ -125,6 +125,7 @@
 				if ($check)
 				{
 					$status = "New Notice successfully saved";
+					$inc_id = $sql->insert_id;
 				}
 				else
 				{
@@ -141,6 +142,7 @@
 				if ($check)
 				{	
 					$status = "Update successfully saved";
+					
 				}
 				else
 				{
@@ -163,7 +165,11 @@
 	}
 	else
 	{
-		$inc_id = $_REQUEST['noticeid'];
+		if ( empty($inc_id) )
+		{
+			$inc_id = $_REQUEST['noticeid'];
+		}
+		
 		if ( $inc_id == "new")
 		{
 			$OWNER="1";
@@ -316,4 +322,7 @@ $(function() {
 	<input type='hidden' name='writeRecord' value='1'>
 	</tr>
 </table>
+<?php
+	include 'listPayments.php';
+?>
 </form>

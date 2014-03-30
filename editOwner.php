@@ -115,10 +115,11 @@
 				`SOCIAL`, `ADDRESS`, `CITY`, `STATE`, `ZIP`, `HPHONE`, `CPHONE`, `DOB`, `EMAIL`) 
 				VALUES ( NULL , '".$FNAME."' , '".$MNAME."' , '".$LNAME."' , '".$SOCIAL."' , '".$ADDRESS."' , '".$CITY."' ,
 				'".$STATE."' , '".$ZIP."' , '".$HPHONE."' , '".$CPHONE."' , '".$DOB."' , '".$EMAIL."' )");
-			
+				
 				if ($check)
 				{
 					$status = "New Owner successfully saved";
+					$inc_id = $sql->insert_id;
 				}
 				else
 				{
@@ -159,7 +160,10 @@
 	}
 	else
 	{
-		$inc_id = $_REQUEST['ownerid'];
+		if ( empty($inc_id) )
+		{
+			$inc_id = $_REQUEST['ownerid'];
+		}
 		if ( $inc_id == "new")
 		{
 			$FNAME="";
