@@ -18,7 +18,7 @@ use
 
 
 // Build our Editor instance and process the data coming from _POST
-Editor::inst( $db, 'PROPERTY' )
+Editor::inst( $db, 'PROPERTY' ,'PROPID')
 	->fields(
 		Field::inst( 'BLOCK' ),
 		Field::inst( 'LOT' ),
