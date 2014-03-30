@@ -27,6 +27,11 @@ $(document).ready(function() {
 				"type": "text"
 			},
 			{
+				"label": "Address",
+				"name": "ADDRNUM",
+				"type": "text"
+			},
+			{
 				"label": "Street",
 				"name": "STREET",
 				"type": "text"
@@ -52,18 +57,13 @@ $(document).ready(function() {
 				"type": "text"
 			},
 			{
-				"label": "Sign Posted",
-				"name": "SPOST",
+				"label": "Description",
+				"name": "PDESC",
 				"type": "text"
 			},
 			{
 				"label": "Comments",
 				"name": "LCOMMENT",
-				"type": "text"
-			},
-			{
-				"label": "Description",
-				"name": "PDESC",
 				"type": "text"
 			}
 		]
