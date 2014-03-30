@@ -23,14 +23,14 @@ Editor::inst( $db, 'PROPERTY' )
 		Field::inst( 'BLOCK' ),
 		Field::inst( 'LOT' ),
 		Field::inst( 'WARD' ),
+        Field::inst( 'ADDRNUM' ),
 		Field::inst( 'STREET' ),
 		Field::inst( 'CITY' ),
 		Field::inst( 'ZIP' ),
 		Field::inst( 'STATE' ),
 		Field::inst( 'BOARDED' ),
-		Field::inst( 'SPOST' ),
-		Field::inst( 'LCOMMENT' ),
-		Field::inst( 'PDESC' )
+		Field::inst( 'PDESC' ),
+		Field::inst( 'LCOMMENT' )
 	)
 	->process( $_POST )
 	->json();
