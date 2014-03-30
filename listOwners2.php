@@ -9,10 +9,10 @@
 	$aColumns = array( 'FNAME', 'LNAME', 'ADDRESS' );
 	
 	/* Indexed column (used for fast and accurate table cardinality) */
-	$sIndexColumn = "PROPID";
+	$sIndexColumn = "OWNERID";
 	
 	/* DB table to use */
-	$sTable = "PROPERTY";
+	$sTable = "OWNERS";
 	
 	/* Database connection information */
 	$gaSql['user']       = "pytools";
