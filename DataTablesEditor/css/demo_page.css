@@ -3,7 +3,7 @@
  * General page setup
  */
 #dt_example {
-	font: 80%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	font: 100%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 	color: #333;
@@ -12,14 +12,14 @@
 
 
 #dt_example #container {
-	width: 800px;
+	width: 900px;
 	margin: 30px auto;
 	padding: 0;
 }
 
 
 #dt_example #footer {
-	margin: 50px auto 0 auto;
+	margin: 75px auto 0 auto;
 	padding: 0;
 }
 
