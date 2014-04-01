@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
           <form action="upload.php" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
-           <div class="col-md-12 ">
+           
             
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
                    <p>File <input type="file" name="image"><p>
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>           
-            </div>
+           
           </form><!--form collapse-->
       </div> 
   
