@@ -47,6 +47,17 @@ $email = $_SESSION['EMAIL'];
 <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
 <script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
 <![endif]-->
+
+<script src='js/jquery-1.11.0.js'></script>
+<script src='js/jquery.dataTables.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/bootstrap-switch.js'></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.tabletools.min.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.min.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.bootstrap.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="table.PROPERTY.js"></script>
 </head>
 
 <body>
@@ -207,16 +218,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src='js/jquery-1.11.0.js'></script>
-    <script src='js/jquery.dataTables.js'></script>
-    <script src='js/bootstrap.min.js'></script>
-    <script src='js/bootstrap-switch.js'></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.tabletools.min.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.min.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="table.PROPERTY.js"></script>
+
 
 
 
@@ -224,4 +226,4 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 </html>
 
 
-<br /><br /><a href="logout.php">Logout</a>
+
