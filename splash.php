@@ -216,7 +216,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.bootstrap.js"></script>
     <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/table.PROPERTY.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="js/table.PROPERTY.js"></script>
 
 <script>
         $( document ).ready(function() {
