@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       
-          <form action="upload.php" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+          <form action="upload.php" method="post" class="form-horizontal pull-left" role="form" enctype="multipart/form-data">
 
            
             
