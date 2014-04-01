@@ -135,8 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="form-group">
                 <label for="inputComments" class="col-sm-3 control-label">Comments</label>
                 <div class="col-sm-9">
-                  <textarea rows="3" type="text"class="form-control" id="inputComments" name="inputComments" placeholder="Comments..."> </textarea>
-                   
+                  <textarea rows="3" type="text"class="form-control" id="inputComments" name="inputComments" placeholder="Property Description"> </textarea>
                 </div>
               </div>
                    <p>File <input type="file" name="image"><p>
