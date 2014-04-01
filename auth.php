@@ -57,7 +57,7 @@ else
 		{
 			//mysql_close($conn);
 			session_destroy();
-			header('Location: login.html');
+			header('Location: signIn.html');
 		}
 	}
 	else if (sizeof($results) != 0 && $results["ACTIVE"] == 0) {
@@ -74,5 +74,4 @@ else
 //echo "connect success";
 
 //mysql_close($conn);
-
 ?>

@@ -23,7 +23,7 @@ Password: '.$password.'
 ------------------------
  
 Please click this link to activate your account:
-http://pytools.webfactional.com/capstonTemp/verify.php?email='.$email.'&hash='.$hash.'
+http://pytools.webfactional.com/capstoneTemp/verify.php?email='.$email.'&hash='.$hash.'
  
 ';
 
@@ -46,7 +46,7 @@ else
 	//echo "Database connection success!" . "<br />";
 	$query = mysqli_query($conn, "INSERT INTO `USERS` ( `USERNAME` , `PASSWORD`, `UTYPE`, `FNAME`, `LNAME`, `EMAIL`, `ACTIVE`, `HASH`) 
 		VALUES('".$username."','".$password."','".$utype."','".$fname."','".$lname."','".$email."','".$active."','".$hash."')");
-	$results = mysqli_fetch_array($query);
+	//$results = mysqli_fetch_array($query);
 
 	if($query)
 	{
@@ -85,7 +85,7 @@ function send_email($email, $subject, $msg)
 	$crl=curl_init();
 	curl_setopt($crl, CURLOPT_URL,"http://pytools.webfactional.com/capstoneTemp/send_confirmation.php");
 	//curl_setopt($crl, CURLOPT_POST, 1);
-	curl_setopt($crl, CURLOPT_POSTFIELDS, $data/*_string*/ );
+	curl_setopt($crl, CURLOPT_POSTFIELDS, $data);
 	//curl_setopt($crl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
 	$res = curl_exec($crl);
@@ -96,5 +96,4 @@ function send_email($email, $subject, $msg)
 
 	return $res;
 }
-
 ?>

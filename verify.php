@@ -34,7 +34,7 @@ else
 
 	if($res == 1)
 	{
-		echo "user account associated with $email is now active you may now <br /><a href='login.html'>Login</a>";
+		echo "user account associated with $email is now active you may now <br /><a href='signIn.html'>Login</a>";
 	}
 	else
 	{
