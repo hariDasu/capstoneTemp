@@ -52,7 +52,7 @@ $email = $_SESSION['EMAIL'];
 <script src='js/jquery.dataTables.js'></script>
 <script src='js/bootstrap.min.js'></script>
 <script src='js/bootstrap-switch.js'></script>
-<script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.tabletools.min.js"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.tabletools.min.js"></script>
 <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.min.js"></script>
 <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.bootstrap.js"></script>
