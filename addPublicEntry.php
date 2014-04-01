@@ -76,14 +76,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
-                <div class="col-sm-5">
+                <div class="col-sm-9">
                   <input  class="form-control" id="inputBlock" name="inputBlock" type="text" placeholder="Block">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputLot" class="col-sm-3 control-label">Lot</label>
-                <div class="col-sm-5">
+                <div class="col-sm-9">
                     <input  class="form-control" id="inputLot" name="inputLot" placeholder="Lot">
                   </div>
               </div>
