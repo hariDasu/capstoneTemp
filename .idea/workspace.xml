@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9583ef43-32f2-4e22-ad31-5d4296241896" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splash.php" afterPath="$PROJECT_DIR$/splash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="capstoneTemp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="splash.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/splash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="9" selection-start="7103" selection-end="7103" vertical-scroll-proportion="5.6264367" vertical-offset="648" max-vertical-offset="3780">
+            <state line="139" column="82" selection-start="5021" selection-end="5021" vertical-scroll-proportion="0.5114943" vertical-offset="1818" max-vertical-offset="3780">
               <folding />
             </state>
           </provider>
@@ -422,7 +421,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/splash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="9" selection-start="7103" selection-end="7103" vertical-scroll-proportion="5.6264367" vertical-offset="648" max-vertical-offset="3780">
+        <state line="139" column="82" selection-start="5021" selection-end="5021" vertical-scroll-proportion="0.5114943" vertical-offset="1818" max-vertical-offset="3780">
           <folding />
         </state>
       </provider>

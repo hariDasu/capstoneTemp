@@ -137,7 +137,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
             <form class='navbar-form navbar-right' role='form'>
             <div class='form-group'>
               &nbsp;
-
+            <a class="btn btn-success" href="addPublicEntry.php">Add Entry to List</a>
             </div>
                 </form>
             </div>
