@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <body>
 
-    <div class="navbar navbar-inverse navbar" role="navigation">
+    <div class="navbar navbar-default navbar" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Abandoned Property List</a>
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container-fluid">
       <div class="row">
         <br>
-        <a href="index.html">Go back... </a>  
+        <a href="splash.php">Go back... </a>  
       </div>  
 
 

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9583ef43-32f2-4e22-ad31-5d4296241896" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splash.php" afterPath="$PROJECT_DIR$/splash.php" />
-    </list>
+    <list default="true" id="9583ef43-32f2-4e22-ad31-5d4296241896" name="Default" comment="" />
     <ignored path="capstoneTemp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,7 @@
       <file leaf-file-name="splash.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/splash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="82" selection-start="5021" selection-end="5021" vertical-scroll-proportion="0.5114943" vertical-offset="1818" max-vertical-offset="3780">
+            <state line="135" column="0" selection-start="4816" selection-end="4816" vertical-scroll-proportion="0.39655173" vertical-offset="1818" max-vertical-offset="3780">
               <folding />
             </state>
           </provider>
@@ -172,6 +170,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -421,7 +420,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/splash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="82" selection-start="5021" selection-end="5021" vertical-scroll-proportion="0.5114943" vertical-offset="1818" max-vertical-offset="3780">
+        <state line="135" column="0" selection-start="4816" selection-end="4816" vertical-scroll-proportion="0.39655173" vertical-offset="1818" max-vertical-offset="3780">
           <folding />
         </state>
       </provider>
