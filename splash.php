@@ -149,57 +149,55 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
             <br><br>
 
-            <div id="container">
+            <table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
 
-                <table cellpadding="0" cellspacing="0" border="0" id="PROPERTY" class="table table-hover table-bordered" width="100%">
-
-                    <thead>
-                    <tr>
-                        <th width="9%">
-                            Block
-                        </th>
+                <thead>
+                <tr>
+                    <th width="9%">
+                        Block
+                    </th>
 
 
-                        <th width="9%">
-                            Lot
-                        </th>
+                    <th width="9%">
+                        Lot
+                    </th>
 
 
 
-                        <th width="9%">
-                            Ward
-                        </th>
+                    <th width="9%">
+                        Ward
+                    </th>
 
-                        <th width="9%">
-                            Address
-                        </th>
-                        <th width="9%">
-                            Street
-                        </th>
-                        <th width="9%">
-                            City
-                        </th>
-                        <th width="9%">
-                            Zip
-                        </th>
-                        <th width="9%">
-                            State
-                        </th>
-                        <th width="8%">
-                            Boarded
-                        </th>
-                        <th width="10%">
-                            Description
-                        </th>
-                        <th width="10%">
-                            Comments
-                        </th>
+                    <th width="9%">
+                        Address
+                    </th>
+                    <th width="9%">
+                        Street
+                    </th>
+                    <th width="9%">
+                        City
+                    </th>
+                    <th width="9%">
+                        Zip
+                    </th>
+                    <th width="9%">
+                        State
+                    </th>
+                    <th width="8%">
+                        Boarded
+                    </th>
+                    <th width="10%">
+                        Description
+                    </th>
+                    <th width="10%">
+                        Comments
+                    </th>
 
 
-                    </tr>
-                    </thead>
+                </tr>
+                </thead>
 
-                </table>
+            </table>
 
             </div>
 
@@ -220,7 +218,26 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <!-- Placed at the end of the document so the pages load faster -->
 
 
+<script>
+    $( document ).ready(function() {
+        $('#login').submit(function(){
+            console.log($(this));
+            return false;
+        });
+        $('#prettyTable').dataTable({
+            "aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+            "iDisplayLength" : 10,
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxSource": "properties.php"
+        });
 
+
+    });
+
+
+
+</script>
 
   </body>
 </html>
