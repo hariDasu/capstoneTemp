@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       <div class="row pull-left">
         <br>
-        <a  href="splash.php">Go back... </a>  <br><br>
+        <a  href="splash.php">Go back... </a>  <br><br><br><br>
       
 
 
@@ -76,21 +76,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                   <input  class="form-control" id="inputBlock" name="inputBlock" type="text" placeholder="Block">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputLot" class="col-sm-3 control-label">Lot</label>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input  class="form-control" id="inputLot" name="inputLot" placeholder="Lot">
                   </div>
               </div>
 
               <div class="form-group">
                 <label for="inputWard" class="col-sm-3 control-label">Ward</label>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                   <input class="form-control" id="inputWard" name="inputWard" placeholder="Ward">
                 </div>
               </div>
