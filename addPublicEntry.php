@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       <div class="row pull-left">
         <br>
-        <a  href="splash.php">Go back... </a>  
+        <a  href="splash.php">Go back... </a>  <br><br>
       
 
 
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
           <form action="upload.php" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
-           <div class="col-xs-6 col-xs-offset-3">
+           <div class="col-xs-9 col-xs-offset-3">
             
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
