@@ -76,70 +76,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                   <input  class="form-control" id="inputBlock" name="inputBlock" type="text" placeholder="Block">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputLot" class="col-sm-3 control-label">Lot</label>
-                <div class="col-sm-12">
+                <div class="col-sm-5">
                     <input  class="form-control" id="inputLot" name="inputLot" placeholder="Lot">
                   </div>
               </div>
 
               <div class="form-group">
                 <label for="inputWard" class="col-sm-3 control-label">Ward</label>
-                <div class="col-sm-12">
+                <div class="col-sm-5">
                   <input class="form-control" id="inputWard" name="inputWard" placeholder="Ward">
                 </div>
               </div>
 				
               <div class="form-group">
                 <label for="inputAddrNum" class="col-sm-3 control-label">Address Number</label>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                   <input class="form-control" id="inputAddrNum" name="inputAddrNum" placeholder="Address Number">
                 </div>
               </div>
               
               <div class="form-group">
                 <label for="inputStreet" class="col-sm-3 control-label">Street</label>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                   <input class="form-control" id="inputStreet" name="inputStreet" placeholder="Street">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputZip" class="col-xs-3 control-label">Zip code</label>
-                <div class="col-xs-4">
+                <div class="col-xs-5">
                   <input  class="form-control" id="inputZip" name="inputZip" placeholder="Zip Code">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputBoarded" class="col-xs-3 control-label">Boarded</label>
-                <div class="col-xs-3">
+                <div class="col-xs-5">
                   <input  class="form-control" id="inputBoarded" name="inputBoarded" placeholder="Y/N">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputSign" class="col-xs-3 control-label">Sign</label>
-                <div class="col-xs-3">
+                <div class="col-xs-5">
                   <input  class="form-control" id="inputSign" name="inputSign" placeholder="Y/N">
                 </div>
               </div>
                 
               <div class="form-group">
                 <label for="inputDescription" class="col-sm-3 control-label">Property Description</label>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                   <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputComments" class="col-sm-3 control-label">Comments</label>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                   <input type="text" class="form-control" id="inputComments" name="inputComments" placeholder="Comments...">
                 </div>
               </div>
