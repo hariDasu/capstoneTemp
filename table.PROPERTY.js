@@ -8,7 +8,7 @@
 
 $(document).ready(function() {
 	var editor = new $.fn.dataTable.Editor( {
-		"ajaxUrl": "../DataTablesEditor/php/table.PROPERTY.php",
+		"ajaxUrl": "DataTablesEditor/php/table.PROPERTY.php",
 		"domTable": "#PROPERTY",
 		"fields": [
 			{
