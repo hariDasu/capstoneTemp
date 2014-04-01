@@ -15,10 +15,16 @@ $fname = $_SESSION['FNAME'];
 $lname = $_SESSION['LNAME'];
 $email = $_SESSION['EMAIL'];
 
-//echo "Welcome to the splash page!<br /><br />";
+echo "Welcome to the splash page!<br /><br />";
 
-//echo "User Information from Session:<br /><br />USERNAME: $username<br />UTYPE: $utype<br />USERID: $userid<br />Firstname: $fname<br />Lastname: $lname<br />Email: $email";
+echo "User Information from Session:<br /><br />
+      USERNAME: $username<br />UTYPE: $utype<br />
+      USERID: $userid<br />Firstname: $fname<br />
+      Lastname: $lname<br />Email: $email";
+
 ?>
+
+<br /><br /><a href="logout.php">Logout</a>
 
 <!DOCTYPE html>
 <html lang='en''>
@@ -63,11 +69,14 @@ $email = $_SESSION['EMAIL'];
 
     <div class='button-group'>
 
-	<div class='pull-right'>
+  <div class='pull-right'>
       <a class='pull-right button btn btn-primary' href='logout.php'>
     Log Out</a>
-<b><?php $username=$_SESSION['USERNAME']; 
-echo "$username"; ?></b>&nbsp;&nbsp;
+<b>
+  <?php 
+      echo $username;
+  ?>
+</b>&nbsp;&nbsp;
             </div>
                 </div>
           </form>
@@ -232,6 +241,3 @@ console.log($(this));
 
   </body>
 </html>
-
-
-<br /><br /><a href="logout.php">Logout</a>

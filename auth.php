@@ -46,10 +46,12 @@ else
 		{
 			$_SESSION['AUTH'] = "True";
 			$_SESSION['UTYPE'] = $results["UTYPE"];
+			$_SESSION['USERID'] = $results["USERID"];
 			$_SESSION['USERNAME'] = $results["USERNAME"];
 			$_SESSION['FNAME'] = $results["FNAME"];
 			$_SESSION['LNAME'] = $results["LNAME"];
 			$_SESSION['EMAIL'] = $results["EMAIL"];
+			//print_r($results);
 			header('Location: splash.php');
 			//echo "active account you may login";
 		}
@@ -67,7 +69,7 @@ else
 	else
 	{
 		session_destroy();
-		echo "Username not found! Would you like to <a href='newuser.html'>Register?</a> or retry <a href='login.html'>Login?</a>";
+		echo "Username not found! Would you like to <a href='register.html'>Register?</a> or retry <a href='signIn.html'>Login?</a>";
 	}
 }
 

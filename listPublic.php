@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php session_start();
+
+        session_start();
+if (!isset($_SESSION['AUTH']))
+{
+    session_destroy();
+    header('Location: signIn.html');
+}
+
+ini_set('display_errors',1);
+        error_reporting(E_ALL);
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +82,7 @@
         {
            // find all entries for user
             $query=mysqli_query($sql, "SELECT * 
-                FROM PROPERTY 
+                FROM PROPERTY WHERE LUSERID='$_SESSION[USERID]'
                 ORDER BY `STREET` ASC 
             ");
             $rowtot = 0;
@@ -102,7 +114,7 @@
                     <?php
                     echo '<tr>';
                     foreach($result as $key=>$value){
-                        if($username = $value["USERNAME"]){
+                        if($_SESSION['LUSERID'] = $value["LUSERID"]){
                             $property_id = $value["PROPID"];
                             print("&nbsp;");
                         

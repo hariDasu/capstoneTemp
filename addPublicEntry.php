@@ -1,6 +1,11 @@
 <?php
 //variables for mysql
 session_start();
+if (!isset($_SESSION['AUTH']))
+{
+    session_destroy();
+    header('Location: signIn.html');
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $BLOCK = $_POST["inputBlock"];

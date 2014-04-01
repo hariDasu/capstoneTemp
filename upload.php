@@ -1,6 +1,12 @@
+<? ob_start(); ?>
 <?php
 // Start a session for error reporting
 session_start();
+if (!isset($_SESSION['AUTH']))
+{
+    session_destroy();
+    header('Location: signIn.html');
+}
 
 //Connection to project website
 $sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
@@ -13,9 +19,12 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
+$luserid = $_SESSION['USERID'];
+date_default_timezone_set('America/New_York');
 $date = date("Y-m-d");
+
 //insert 
-$insert="INSERT INTO PROPERTY (BLOCK, LOT, WARD, ADDRNUM, STREET, ZIP, BOARDED, SPOST, PDESC, LCOMMENT, LDATE) VALUES ('$_POST[inputBlock]', '$_POST[inputLot]', '$_POST[inputWard]', '$_POST[inputAddrNum]' , '$_POST[inputStreet]','$_POST[inputZip]','$_POST[inputBoarded]','$_POST[inputSign]','$_POST[inputDescription]','$_POST[inputComments]','$date')";
+$insert="INSERT INTO PROPERTY (BLOCK, LOT, WARD, ADDRNUM, STREET, ZIP, BOARDED, SPOST, PDESC, LCOMMENT, LDATE, LUSERID) VALUES ('$_POST[inputBlock]', '$_POST[inputLot]', '$_POST[inputWard]', '$_POST[inputAddrNum]' , '$_POST[inputStreet]','$_POST[inputZip]','$_POST[inputBoarded]','$_POST[inputSign]','$_POST[inputDescription]','$_POST[inputComments]','$date', '$luserid')";
 
 if (!mysqli_query($sql,$insert))
   {
@@ -30,11 +39,10 @@ if (!mysqli_query($sql,$insert))
         echo "</pre>";
     }
 
-
  //---------------image handling--------------------------------------------
 
   // Get our POSTed variables
- $image = $_FILES['image'];
+$image = $_FILES['image'];
 
     //check if there is a image
 if ($image['size'] = "0" ){
@@ -55,7 +63,7 @@ else{
       
     
     //get property id for folder name;
-    $result = mysqli_query($sql, "SELECT * FROM PROPERTY WHERE ADDRNUM='$_POST[inputAddrNum]' AND STREET='$_POST[inputStreet]'");
+    $result = mysqli_query($sql, "SELECT * FROM PROPERTY WHERE LUSERID='$luserid' AND ADDRNUM='$_POST[inputAddrNum]' AND STREET='$_POST[inputStreet]'");
    
     $row = mysqli_fetch_array($result);
     
@@ -84,7 +92,7 @@ else{
     if (!is_valid_type($image))
     {
         $_SESSION['error'] = "Only jpeg, gif, png or bmp alre allowed";
-       // header("Location: editEntry.php");
+        header("Location: editEntry.php");
         exit;
     }
 
@@ -93,7 +101,7 @@ else{
     if (file_exists($TARGET_PATH))
     {
         $_SESSION['error'] = "A file with that name already exists";
-     	//header("Location: editEntry.php");
+     	  header("Location: editEntry.php");
         exit;
     }
 
@@ -101,13 +109,15 @@ else{
     if (move_uploaded_file($image['tmp_name'], $TARGET_PATH))
     {
         // We are *not* putting the image into the database; we are putting a reference to the file's location on the server
-        $insertImage = "UPDATE PROPERTY SET PHOTOLOC='$FOLDER_PATH' WHERE  ADDRNUM='$_POST[inputAddrNum]' AND STREET='$_POST[inputStreet]'";
+        $insertImage = "UPDATE PROPERTY SET PHOTOLOC='$FOLDER_PATH' WHERE  LUSERID='$luserid' AND ADDRNUM='$_POST[inputAddrNum]' AND STREET='$_POST[inputStreet]'";
         
-        if (!mysqli_query($sql,$insertImage))
+        if (mysqli_query($sql,$insertImage))
           {
-          die('Error: ' . mysqli_error($sql));
+            header("Location: listPublic.php");
+          
           }
-          header("Location: listPublic.php");
+          
+          die('Error: ' . mysqli_error($sql));
          
           exit;
 
@@ -118,7 +128,7 @@ else{
         // Make sure you chmod the directory to be writeable
         $_SESSION['error'] = "Could not upload file.  Check read/write persmissions on the directory";
 
-        //header("Location: editEntry.php");
+        header("Location: editEntry.php");
         exit;
     }
 }
@@ -131,3 +141,4 @@ else{
 /* close connection */
 mysqli_close($sql);
 ?>
+<? ob_flush(); ?>
