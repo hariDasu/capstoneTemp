@@ -64,11 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       <div>
         <br>
-        <a  href="splash.php">Go back... </a>  <br><br><br><br>
-      
-
-
-
+        <a  href="splash.php">Go back... </a>  <br><br>      
       
           <form action="upload.php" method="post" class="form-horizontal pull-left" role="form" enctype="multipart/form-data">
 
