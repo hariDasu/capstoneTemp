@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
       
       
-      <div class="row pull-left">
+      <div>
         <br>
         <a  href="splash.php">Go back... </a>  <br><br><br><br>
       
