@@ -60,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     <div class="container">
-      <div class="col-md-12">
-      <div class="container pull-left">
+      
+      
       <div class="row pull-left">
         <br>
         <a class="pull-right" href="splash.php">Go back... </a>  
@@ -148,8 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </form><!--form collapse-->
       </div> 
-    </div>
-      </div>   
+  
+       
     </div> 
 
 
