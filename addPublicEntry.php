@@ -68,11 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
           <form action="upload.php" method="post" class="form-horizontal pull-left" role="form" enctype="multipart/form-data">
 
-           
-            
+ 
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-3 control-label">Block</label>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                   <input  class="form-control" id="inputBlock" name="inputBlock" type="text" placeholder="Block">
                 </div>
               </div>
