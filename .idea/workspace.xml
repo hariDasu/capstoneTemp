@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9583ef43-32f2-4e22-ad31-5d4296241896" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/capstoneTemp.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splash.php" afterPath="$PROJECT_DIR$/splash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="capstoneTemp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,62 +29,8 @@
       <file leaf-file-name="splash.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/splash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="0" selection-start="5821" selection-end="5821" vertical-scroll-proportion="0.3030303" vertical-offset="2970" max-vertical-offset="3615">
-              <folding>
-                <marker date="1396321948000" expanded="true" signature="529:1156" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="529:587" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="529:563" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="529:557" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:1156" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:587" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:563" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1389:1593" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1615:6230" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1615:5885" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1721:2243" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1757:1844" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1894:2205" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1943:2190" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="1983:2172" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2025:2149" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2104:2130" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2363:5354" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2425:5264" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2457:5251" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="2501:2804" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="3949:4161" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4040:4142" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4077:4118" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4329:5232" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4344:5220" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4359:5205" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4389:4433" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4465:4507" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4540:4583" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4614:4660" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4690:4735" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4765:4808" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4838:4880" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4910:4954" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="4984:5030" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5061:5111" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5142:5189" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5292:5343" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5386:5468" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5829:6219" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5829:5885" placeholder="..." />
-                <marker date="1396321948000" expanded="true" signature="5870:6201" placeholder="{...}" />
-                <marker date="1396321948000" expanded="true" signature="5870:6201" placeholder="{...}" />
-                <marker date="1396321948000" expanded="true" signature="5913:5956" placeholder="{...}" />
-                <marker date="1396321948000" expanded="true" signature="5991:6195" placeholder="{&quot;iDisplayLength&quot;: 10...}" />
-              </folding>
+            <state line="216" column="78" selection-start="6613" selection-end="6613" vertical-scroll-proportion="2.810345" vertical-offset="1773" max-vertical-offset="3780">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,7 +38,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="2" selection-start="0" selection-end="6117" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="3255">
+            <state line="1" column="2" selection-start="0" selection-end="6117" vertical-scroll-proportion="-0.0" vertical-offset="15" max-vertical-offset="3255">
               <folding />
             </state>
           </provider>
@@ -106,7 +47,7 @@
       <file leaf-file-name="PROPERTY.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataTablesEditor/PROPERTY.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="29.375" vertical-offset="705" max-vertical-offset="1275">
+            <state line="21" column="113" selection-start="599" selection-end="1280" vertical-scroll-proportion="-12.375" vertical-offset="18" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -130,14 +71,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/DataTablesEditor/PROPERTY.html" />
         <option value="$PROJECT_DIR$/splash.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="26" />
-    <option name="y" value="84" />
+    <option name="x" value="34" />
+    <option name="y" value="44" />
     <option name="width" value="1222" />
     <option name="height" value="705" />
   </component>
@@ -297,28 +239,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="84" width="1222" height="705" extended-state="0" />
+    <frame x="34" y="44" width="1222" height="705" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6700855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2542517" sideWeight="0.6700855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -333,85 +275,50 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataTablesEditor/php/table.PROPERTY.php">
+    <entry file="file://$PROJECT_DIR$/splash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.12570356" vertical-offset="67" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataTablesEditor/PROPERTY.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="29.375" vertical-offset="705" max-vertical-offset="1275">
+        <state line="21" column="0" selection-start="488" selection-end="6248" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="3615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="2" selection-start="0" selection-end="6117" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="3255">
+        <state line="1" column="2" selection-start="0" selection-end="6117" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="3255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTablesEditor/PROPERTY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTablesEditor/php/table.PROPERTY.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.12570356" vertical-offset="67" max-vertical-offset="600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="2" selection-start="0" selection-end="6117" vertical-scroll-proportion="-0.0" vertical-offset="15" max-vertical-offset="3255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTablesEditor/PROPERTY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="113" selection-start="599" selection-end="1280" vertical-scroll-proportion="-12.375" vertical-offset="18" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/splash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="0" selection-start="5821" selection-end="5821" vertical-scroll-proportion="0.3030303" vertical-offset="2970" max-vertical-offset="3615">
-          <folding>
-            <marker date="1396321948000" expanded="true" signature="529:1156" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="529:587" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="529:563" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="529:557" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:1156" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:587" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:563" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="538:557" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1389:1593" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1615:6230" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1615:5885" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1691:2254" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1721:2243" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1757:1844" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1894:2205" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1943:2190" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="1983:2172" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2025:2149" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2104:2130" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2363:5354" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2425:5264" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2457:5251" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="2501:2804" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="3949:4161" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4040:4142" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4077:4118" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4329:5232" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4344:5220" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4359:5205" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4389:4433" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4465:4507" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4540:4583" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4614:4660" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4690:4735" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4765:4808" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4838:4880" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4910:4954" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="4984:5030" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5061:5111" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5142:5189" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5292:5343" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5386:5468" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5829:6219" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5829:5885" placeholder="..." />
-            <marker date="1396321948000" expanded="true" signature="5870:6201" placeholder="{...}" />
-            <marker date="1396321948000" expanded="true" signature="5870:6201" placeholder="{...}" />
-            <marker date="1396321948000" expanded="true" signature="5913:5956" placeholder="{...}" />
-            <marker date="1396321948000" expanded="true" signature="5991:6195" placeholder="{&quot;iDisplayLength&quot;: 10...}" />
-          </folding>
+        <state line="216" column="78" selection-start="6613" selection-end="6613" vertical-scroll-proportion="2.810345" vertical-offset="1773" max-vertical-offset="3780">
+          <folding />
         </state>
       </provider>
     </entry>

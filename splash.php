@@ -138,55 +138,59 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
             <br><br>
 
-  <table cellpadding='0' cellspacing='0' border='0' id='prettyTable' class='table table-hover table-bordered' width='100%'>
+            <div id="container">
 
-      <thead>
-          <tr>
-              <th width='9%'>
-                  Block
-              </th>
+                <table cellpadding="0" cellspacing="0" border="0" id="PROPERTY" class="table table-hover table-bordered" width="100%">
 
-
-              <th width='9%'>
-                  Lot
-              </th>
+                    <thead>
+                    <tr>
+                        <th width="9%">
+                            Block
+                        </th>
 
 
-
-              <th width='9%'>
-                  Ward
-              </th>
-
-              <th width='9%'>
-                  Address
-              </th>
-              <th width='9%'>
-                  Street
-              </th>
-              <th width='9%'>
-                  City
-              </th>
-              <th width='9%'>
-                  Zip
-              </th>
-              <th width='9%'>
-                  State
-              </th>
-              <th width='8%'>
-                  Boarded
-              </th>
-              <th width='10%'>
-                  Description
-              </th>
-              <th width='10%'>
-                  Comments
-              </th>
+                        <th width="9%">
+                            Lot
+                        </th>
 
 
-        </tr>
-      </thead>
 
-  </table>
+                        <th width="9%">
+                            Ward
+                        </th>
+
+                        <th width="9%">
+                            Address
+                        </th>
+                        <th width="9%">
+                            Street
+                        </th>
+                        <th width="9%">
+                            City
+                        </th>
+                        <th width="9%">
+                            Zip
+                        </th>
+                        <th width="9%">
+                            State
+                        </th>
+                        <th width="8%">
+                            Boarded
+                        </th>
+                        <th width="10%">
+                            Description
+                        </th>
+                        <th width="10%">
+                            Comments
+                        </th>
+
+
+                    </tr>
+                    </thead>
+
+                </table>
+
+            </div>
 
 
           </div>
@@ -207,7 +211,12 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <script src='js/jquery.dataTables.js'></script>
     <script src='js/bootstrap.min.js'></script>
     <script src='js/bootstrap-switch.js'></script>
-    <script type='text/javascript' src='js/dataTables.bootstrap.js'></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.tabletools.min.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.min.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/table.PROPERTY.js"></script>
 
 <script>
         $( document ).ready(function() {
