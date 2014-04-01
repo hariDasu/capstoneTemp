@@ -218,26 +218,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <script type="text/javascript" language="javascript" charset="utf-8" src="DataTablesEditor/js/dataTables.editor.bootstrap.js"></script>
     <script type="text/javascript" language="javascript" charset="utf-8" src="table.PROPERTY.js"></script>
 
-<script>
-        $( document ).ready(function() {
-            $('#login').submit(function(){
-console.log($(this));
-    return false;
-});
-    $('#prettyTable').dataTable({
-        'aLengthMenu': [[5,10, 25, 50, -1], [5,10, 25, 50, 'All']],
-        'iDisplayLength' : 10,
-        'bProcessing': true,
-        'bServerSide': true,
-        'sAjaxSource': 'properties.php'
-    });
 
-
-});
-
-
-
-    </script>
 
   </body>
 </html>
