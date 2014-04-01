@@ -126,16 +126,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
                 
               <div class="form-group">
-                <label for="inputDescription" class="col-sm-2 control-label">Property Description</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description">
+                <label for="inputDescription" class="col-sm-3 control-label">Property Description</label>
+                <div class="col-sm-9">
+                  <textarea rows="2" type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputComments" class="col-sm-2 control-label">Comments</label>
+                <label for="inputComments" class="col-sm-3 control-label">Comments</label>
                 <div class="col-sm-9">
-                  <input type="text"10class="form-control" id="inputComments" name="inputComments" placeholder="Comments...">
+                  <textarea rows="3" type="text"class="form-control" id="inputComments" name="inputComments" placeholder="Comments...">
                 </div>
               </div>
                    <p>File <input type="file" name="image"><p>
