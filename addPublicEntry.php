@@ -59,7 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Main  -->
     
 
-    <div class="container-fluid">
+    <div class="container">
+      <div class="col-md-10">
       <div class="row">
         <br>
         <a class="pull-right" href="splash.php">Go back... </a>  
@@ -145,7 +146,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>           
             </div>
           </form><!--form collapse-->
-      </div>    
+      </div> 
+      </div>   
     </div> 
 
 
