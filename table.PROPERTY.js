@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 	$('#PROPERTY').dataTable( {
 		"sDom": "Tfrtip",
-		"sAjaxSource": "php/table.PROPERTY.php",
+		"sAjaxSource": "DataTablesEditor/php/table.PROPERTY.php",
 		"aoColumns": [
 			{
 				"mData": "BLOCK"
