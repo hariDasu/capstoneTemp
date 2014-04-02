@@ -35,9 +35,10 @@ ini_set('display_errors',1);
       <div class="container">
         <div class="navbar-header">
           
-          <a class="navbar-brand" href="index.html">Abandoned Property List</a>
+          <a class="navbar-brand" href="splash.php">Abandoned Property List</a>
         </div>
-          
+        <div class="container-fluid">
+      
         <div class="navbar-collapse pull-right">
           <form class="navbar-form" role="form">
             
@@ -46,7 +47,7 @@ ini_set('display_errors',1);
                 <div class="dropdown-menu pull-right">
               
             </div>
-                </div>
+        </div>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -60,15 +61,17 @@ ini_set('display_errors',1);
             </div>
         </form>
     </div>
-  
+    
+    <br><br><br>
     <br><br><br>
 
     
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>property Listing</title>
-</head>
+        <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+          <title>Property Listing</title>
+        </head>
+
 <body>
 <table>
 <?php

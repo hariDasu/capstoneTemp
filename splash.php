@@ -30,7 +30,7 @@ $email = $_SESSION['EMAIL'];
 <meta name='author' content=''>
 <link rel='shortcut icon' href='../../assets/ico/favicon.ico'>
 
-<title>Abandoned Properties in Paterson</title>
+<title>Spot The Lot - City of Paterson</title>
 
 <!-- Bootstrap core CSS -->
 <link href='css/bootstrap.min.css' rel='stylesheet'>
@@ -66,7 +66,7 @@ $email = $_SESSION['EMAIL'];
 <div class='container'>
 <div class='navbar-header'>
 
-  <a class='navbar-brand' href='#'>Abandoned Property List</a>
+  <a class='navbar-brand' href='#'>Spot The Lot - City of Paterson</a>
 </div>
 
 <div class='navbar-collapse pull-right'>

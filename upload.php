@@ -1,5 +1,5 @@
-<? ob_start(); ?>
 <?php
+header( 'Content-type: text/html; charset=utf-8' );
 // Start a session for error reporting
 session_start();
 if (!isset($_SESSION['AUTH']))
@@ -23,8 +23,15 @@ $luserid = $_SESSION['USERID'];
 date_default_timezone_set('America/New_York');
 $date = date("Y-m-d");
 
+if ($_POST['inputStreet'] != "") {
 //insert 
 $insert="INSERT INTO PROPERTY (BLOCK, LOT, WARD, ADDRNUM, STREET, ZIP, BOARDED, SPOST, PDESC, LCOMMENT, LDATE, LUSERID) VALUES ('$_POST[inputBlock]', '$_POST[inputLot]', '$_POST[inputWard]', '$_POST[inputAddrNum]' , '$_POST[inputStreet]','$_POST[inputZip]','$_POST[inputBoarded]','$_POST[inputSign]','$_POST[inputDescription]','$_POST[inputComments]','$date', '$luserid')";
+}
+else
+{
+    $_SESSION['error'] = "You must enter address and street";
+    header("Location: addPublicEntry.php");
+}
 
 if (!mysqli_query($sql,$insert))
   {
@@ -45,11 +52,9 @@ if (!mysqli_query($sql,$insert))
 $image = $_FILES['image'];
 
     //check if there is a image
-if ($image['size'] = "0" ){
+if ($image['size'] != "0" ){
 
-  header("Location: listPublic.php");
-}
-else{
+
    // Check to see if the type of file uploaded is a valid image type
     function is_valid_type($file)
     {
@@ -92,7 +97,8 @@ else{
     if (!is_valid_type($image))
     {
         $_SESSION['error'] = "Only jpeg, gif, png or bmp alre allowed";
-        header("Location: editEntry.php");
+        echo "not a valid file type, jpeg, gif, png or bmp ";
+        //header("Location: editEntry.php");
         exit;
     }
 
@@ -101,7 +107,8 @@ else{
     if (file_exists($TARGET_PATH))
     {
         $_SESSION['error'] = "A file with that name already exists";
-     	  header("Location: editEntry.php");
+        echo"A file with same name exists already";
+     	  //header("Location: editEntry.php");
         exit;
     }
 
@@ -127,10 +134,13 @@ else{
         // A common cause of file moving failures is because of bad permissions on the directory attempting to be written to
         // Make sure you chmod the directory to be writeable
         $_SESSION['error'] = "Could not upload file.  Check read/write persmissions on the directory";
-
-        header("Location: editEntry.php");
+        echo "could not upload file";
+        //header("Location: editEntry.php");
         exit;
     }
+}
+else{
+header("Location: listPublic.php");
 }
 
     
@@ -141,4 +151,3 @@ else{
 /* close connection */
 mysqli_close($sql);
 ?>
-<? ob_flush(); ?>

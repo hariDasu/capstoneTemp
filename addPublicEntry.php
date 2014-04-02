@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Abandoned Properties in Paterson</title>
+    <title>Spot The Lot - City of Paterson</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,9 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <body>
 
     <div class="navbar navbar-default navbar" role="navigation">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Abandoned Property List</a>
+          <a class="navbar-brand" href="splash.php">Spot The Lot - City of Paterson</a>
         </div>
       </div>
     </div><!--/.navbar-collapse -->
@@ -60,91 +60,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     <div class="container">
-      
-      
-      <div>
+      <div class="row">
         <br>
-        <a  href="splash.php">Go back... </a>  <br><br>      
-      
-          <form action="upload.php" method="post" class="form-horizontal pull-left" role="form" enctype="multipart/form-data">
+        <a href="splash.php">Go back... </a>  
+      </div>  
 
- 
+
+
+      <div class="row">
+          <form action="upload.php" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+
+           
+            
               <div class="form-group">
                 <label for="inputBlock" class="col-sm-2 control-label">Block</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                   <input  class="form-control" id="inputBlock" name="inputBlock" type="text" placeholder="Block">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputLot" class="col-sm-2 control-label">Lot</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input  class="form-control" id="inputLot" name="inputLot" placeholder="Lot">
                   </div>
               </div>
 
               <div class="form-group">
                 <label for="inputWard" class="col-sm-2 control-label">Ward</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                   <input class="form-control" id="inputWard" name="inputWard" placeholder="Ward">
                 </div>
               </div>
 				
               <div class="form-group">
                 <label for="inputAddrNum" class="col-sm-2 control-label">Address Number</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                   <input class="form-control" id="inputAddrNum" name="inputAddrNum" placeholder="Address Number">
                 </div>
               </div>
               
               <div class="form-group">
                 <label for="inputStreet" class="col-sm-2 control-label">Street</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                   <input class="form-control" id="inputStreet" name="inputStreet" placeholder="Street">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputZip" class="col-xs-2 control-label">Zip code</label>
-                <div class="col-xs-10">
+                <div class="col-xs-3">
                   <input  class="form-control" id="inputZip" name="inputZip" placeholder="Zip Code">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputBoarded" class="col-xs-2 control-label">Boarded</label>
-                <div class="col-xs-10">
+                <div class="col-xs-2">
                   <input  class="form-control" id="inputBoarded" name="inputBoarded" placeholder="Y/N">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputSign" class="col-xs-2 control-label">Sign</label>
-                <div class="col-xs-10">
+                <div class="col-xs-2">
                   <input  class="form-control" id="inputSign" name="inputSign" placeholder="Y/N">
                 </div>
               </div>
                 
               <div class="form-group">
-                <label for="inputDescription" class="col-sm-3 control-label">Property Description</label>
-                <div class="col-sm-9">
-                  <textarea rows="3" type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description"></textarea>
+                <label for="inputDescription" class="col-sm-2 control-label">Property Description</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputComments" class="col-sm-3 control-label">Comments</label>
-                <div class="col-sm-9">
-                  <textarea rows="3" type="text"class="form-control" id="inputComments" name="inputComments" placeholder="Property Description"> </textarea>
+                <label for="inputComments" class="col-sm-2 control-label">Comments</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="inputComments" name="inputComments" placeholder="Comments...">
                 </div>
               </div>
                    <p>File <input type="file" name="image"><p>
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>           
-           
+            </div>
           </form><!--form collapse-->
-      </div> 
-  
-       
+      </div>    
     </div> 
 
 
