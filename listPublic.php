@@ -22,7 +22,7 @@ ini_set('display_errors',1);
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Abandoned Properties in Paterson</title>
+    <title>Spot The Lot - City of Paterson</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@ ini_set('display_errors',1);
       <div class="container">
         <div class="navbar-header">
           
-          <a class="navbar-brand" href="index.html">Abandoned Property List</a>
+          <a class="navbar-brand" href="index.html">Spot The Lot - City of Paterson</a>
         </div>
           
         <div class="navbar-collapse pull-right">
@@ -59,6 +59,13 @@ ini_set('display_errors',1);
                 <a class="btn btn-success" href="splash.php">Return to full List</a>
             </div>
         </form>
+        <form class='navbar-form navbar-left' role='form'>
+            <div class='form-group'>
+                &nbsp;
+                <a class="btn btn-success" href="addPublicEntry.php">Add more</a>
+            </div>
+        </form>
+
     </div>
   
     <br><br><br>
@@ -111,6 +118,7 @@ ini_set('display_errors',1);
                                     <td>Block</td>
                                     <td>Lot</td>
                                     <td>Ward</td>
+                                    <td>Address</td>
                                     <td>Street</td>
                                     <td>Zip Code</td>
                                     <td>Boarded</td>
@@ -130,12 +138,51 @@ ini_set('display_errors',1);
                             echo '<tr>';
                             print("<td><a href='editEntry.php?$=".$value["PROPID"]."'>Edit</a>");
 
-                            echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["STREET"],'</td> <td>',$value["ZIP"],' </td>  <td>', $value["BOARDED"];
+                            echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>  <td>', $value["BOARDED"];
                             echo '</td><td>',$value["SPOST"],' </td>  <td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
                                 if(!empty($value["PHOTOLOC"]) ){ 
-                                    echo '<td> Y </td>' ;
-                                 
-                                }
+                                    //************testing*****************
+                                  
+                                    $string =array();
+                                    $filePath=$value["PHOTOLOC"];  
+                                    $dir = opendir($filePath);
+                                    while ($file = readdir($dir)) { 
+                                       if (preg_match("/.png/",$file) || preg_match("/.jpg/",$file) || preg_match("/.gif/",$file) || preg_match("/.bmp/",$file) || preg_match("/.jpeg/",$file)) { 
+                                            $string[] = $file;
+                                       }
+                                    }
+                                    while (sizeof($string) != 0){
+                                      $img = array_pop($string);
+
+                                    ?> 
+                                        <html>
+                                        <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Image</button>
+                                                    
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p><img src="<?php echo $filePath.$img; ?>"  width="400" height="200"></p>
+                                                        
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                       
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                           
+                                           
+                                          <td><a data-toggle="modal" href="#imgModal"><img src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a></td>
+                                        </html>
+                                    <?php
+                                    }
+                                    
+                                }    
                                 else{
                                    echo '<td></td>';
                                 }
@@ -150,7 +197,7 @@ ini_set('display_errors',1);
                         </tr>';
             }
         }
-?>
+    ?>
 </table>
 </body>
 
@@ -167,7 +214,20 @@ ini_set('display_errors',1);
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-switch.js"></script>
-
+    <script>
+      $(document).ready(function(){
+           $('img').on('click',function(){
+                var src = $(this).attr('src');
+                var img = '<img src="' + src + '" class="img-responsive"/>';
+                $('#imgModal').modal();
+                $('#imgModal').on('shown.bs.modal', function(){
+                    $('#imgModal .modal-body').html(img);
+                });
+                $('#mimgModal').on('hidden.bs.modal', function(){
+                    $('#imgModal .modal-body').html('');
+                });
+           });  
+        })</script>
     
   </body>
 </html>
