@@ -56,7 +56,7 @@ ini_set('display_errors',1);
         <form class='navbar-form navbar-right' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="splash.php">Return to full List</a>
+                <a class="btn btn-success" href="splash.php">Main List</a>
             </div>
         </form>
         <form class='navbar-form navbar-left' role='form'>
@@ -140,9 +140,9 @@ ini_set('display_errors',1);
 
                             echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>  <td>', $value["BOARDED"];
                             echo '</td><td>',$value["SPOST"],' </td>  <td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
-                              
-                                //----load image if available and modal----
                                 if(!empty($value["PHOTOLOC"]) ){ 
+                                    //************testing*****************
+                                  
                                     $string =array();
                                     $filePath=$value["PHOTOLOC"];  
                                     $dir = opendir($filePath);
@@ -154,9 +154,7 @@ ini_set('display_errors',1);
                                     while (sizeof($string) != 0){
                                       $img = array_pop($string);
 
-                                    ?>
-
-
+                                    ?> 
                                         <html>
                                         <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -184,7 +182,7 @@ ini_set('display_errors',1);
                                     <?php
                                     }
                                     
-                                } //---end image processing----------   
+                                }    
                                 else{
                                    echo '<td></td>';
                                 }

@@ -51,8 +51,9 @@ else
 			$_SESSION['FNAME'] = $results["FNAME"];
 			$_SESSION['LNAME'] = $results["LNAME"];
 			$_SESSION['EMAIL'] = $results["EMAIL"];
+			$_SESSION['PASSWORD'] = $results["PASSWORD"];
 			//print_r($results);
-			header('Location: splash.php');
+			header('Location: splashPublic.php');
 			//echo "active account you may login";
 		}
 		else

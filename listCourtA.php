@@ -44,7 +44,7 @@
 				foreach($result as $key=>$value){
 				print("&nbsp;");
 						print("<tr>
-						<td><a href='editCAction.php?ownerid=".$value["COURTID"]."'>Edit</a>
+						<td><a href='editCAction.php?courtid=".$value["COURTID"]."'>Edit</a>
 						<a href='deleteca.php?id=".$value["COURTID"]."' onclick=\"return confirm('Remove ".$value["COURTID"]."?');\">Delete</a></td>
 						<td>".$value["COURTID"]." </td> <td>".$value["FNAME"]." </td>  <td> ".$value["LNAME"]."</td>
 						<td>".$value["ADDRNUM"]." </td> <td>".$value["STREET"]." </td>

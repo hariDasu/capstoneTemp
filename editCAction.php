@@ -1,5 +1,4 @@
 <?php
-	
 	session_start();
 	if (!isset($_SESSION['AUTH']))
 	{
@@ -53,7 +52,7 @@
 	
 	if(isset($_POST['back']))
 	{
-		header("Location: listNotices.php");
+		header("Location: listCourtA.php");
 	}
 	
 	$sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
@@ -69,64 +68,55 @@
 	
 	if(isset($_POST['writeRecord']))
 	{
-		$inc_id=$_POST["inputNoticeID"];
+		$inc_id=$_POST["inputCActionID"];
 		$OWNER=$_POST["inputOwner"];
-		$TYPE=$_POST["inputNType"];
-		$selTYPE = "<select class='form-control' name='inputNType'><option value='1' ";
-		if ( $TYPE == 1)
-		{
-			$selTYPE .= " selected";
-		}
-		$selTYPE .= ">Notification</option>";
-		$selTYPE .= "<option value='2' ";
-		if ( $TYPE == 2)
-		{
-			$selTYPE .= " selected";
-		}
-		$selTYPE .= ">Invoice</option>";
-		$selTYPE .= "<option value='3' ";
-		if ( $TYPE == 3)
-		{
-			$selTYPE .= " selected";
-		}
-		$selTYPE .= ">Court Summons</option></select>";
-		$SDATE=$_POST["inputSDate"];
-		$RDATE=$_POST["inputRDate"];
-		//$PROPID=$_POST["PROPID"];
-		$FEE=$_POST["inputFee"];
-		$NOTES=$_POST["inputNotes"];
+		$PROPID=$_POST["inputProperty"];
+		$CDATE=$_POST["inputCDate"];
+		$ADESC=$_POST["inputADesc"];
+		$CDISP=$_POST["inputCDisp"];
 		$CHECKPASS=true;
 		$status="";
-		if( checkdate( intval(substr($SDATE,6,2)) , intval(substr($SDATE, 8, 2 )) , intval(substr($SDATE, 1,4 ) )))
+		if( checkdate( intval(substr($CDATE,6,2)) , intval(substr($CDATE, 8, 2 )) , intval(substr($CDATE, 1,4 ) )))
 		{
 			// if the checks are ok for the email we assign the email address to a variable
 		}
 		else
 		{
-			$status = 'Invalid Date Sent Supplied';
+			$status = 'Invalid Court Date Supplied';
 			$CHECKPASS = false;
 		}
-		if( empty($RDATE) || $RDATE=="0000-00-00" || checkdate( intval(substr($RDATE,6,2)) , intval(substr($RDATE, 8, 2 )) , intval(substr($RDATE, 1,4 ) )))
+		$rowtot = 0;
+		unset($result);
+		unset($query);
+		unset($result);
+		$query=mysqli_query($sql, "
+			SELECT * 
+			FROM PROPERTY
+			WHERE `PROPID` = ".$PROPID."
+			AND `OWNERID` = ".$OWNER."
+		");
+		$valid = mysqli_affected_rows($sql);
+		if ($valid)
 		{
-			// if the checks are ok for the email we assign the email address to a variable
 		}
 		else
 		{
-			$status = 'Invalid Date of Reply Supplied';
-			$CHECKPASS = false;
+			$status = 'Owner selected is not associated with the property selected.';
+			$CHECKPASS= false;
 		}
+		
 		if ($CHECKPASS)
 		{
 			
 			if( trim($inc_id) == "new" )
 			{
-				$check=mysqli_query($sql, "INSERT INTO `NOTICES` (`NOTICEID`, `OWNERID`, `NTYPE`, `SDATE`, 
-				`RDATE`, `FEE`, `NOTES`) 
-				VALUES ( NULL , '".$OWNER."' , '".$TYPE."' , '".$SDATE."' , '".$RDATE."' , '".$FEE."' , '".$NOTES."' )");
+				$check=mysqli_query($sql, "INSERT INTO `CACTIONS` (`COURTID`, `OWNERID`, `PROPID`, `CDATE`, 
+				`CDISP`, `ADESC`) 
+				VALUES ( NULL , '".$OWNER."' , '".$PROPID."' , '".$CDATE."' , '".$CDISP."' , '".$ADESC."' )");
 			
 				if ($check)
 				{
-					$status = "New Notice successfully saved";
+					$status = "New Court Action successfully saved";
 					$inc_id = $sql->insert_id;
 				}
 				else
@@ -136,9 +126,9 @@
 			}
 			else
 			{
-				$check=mysqli_query($sql, "UPDATE `NOTICES` 
-				SET `OWNERID` = '".$OWNER."', `NTYPE` = '".$TYPE."', `SDATE` = '".$SDATE."' , `RDATE` = '".$RDATE."', `FEE` = '".$FEE."' , `NOTES` = '".$NOTES."'
-				WHERE NOTICEID = '".$inc_id."'");
+				$check=mysqli_query($sql, "UPDATE `CACTIONS` 
+				SET `OWNERID` = '".$OWNER."', `PROPID` = '".$PROPID."', `CDATE` = '".$CDATE."' , `ADESC` = '".$ADESC."' , `CDISP` = '".$CDISP."'
+				WHERE COURTID = '".$inc_id."'");
 			
 				
 				if ($check)
@@ -159,30 +149,23 @@
 		}
 		else 
 		{
-			
 			$status = "<FONT COLOR='FF0000'>".$status."</FONT>";
-		
 		}
 	}
 	else
 	{
 		if ( empty($inc_id) )
 		{
-			$inc_id = $_REQUEST['noticeid'];
+			$inc_id = $_REQUEST['courtid'];
 		}
 		
 		if ( $inc_id == "new")
 		{
 			$OWNER="1";
-			$TYPE="1";
-			$selTYPE = "<select name='inputNType'><option value='1' selected >Notification</option>";
-			$selTYPE .= "<option value='2' >Invoice</option>";
-			$selTYPE .= "<option value='3' >Court Summons</option></select>";
-			$SDATE="";
-			$RDATE="";
 			$PROPID="";
-			$FEE="";
-			$NOTES="";
+			$CDATE="";
+			$CDISP="";
+			$ADESC="";
 			$status="Please fill out as much information as possible.";
 		}
 		else
@@ -190,36 +173,16 @@
 
 			$query=mysqli_query($sql, "
 				SELECT * 
-				FROM NOTICES
-				WHERE NOTICEID = ".$inc_id."
+				FROM CACTIONS
+				WHERE COURTID = ".$inc_id."
 			");
 			$rowtot = 0;
 			while($row=mysqli_fetch_assoc($query)){
 				$OWNER=$row["OWNERID"];
-				$TYPE=$row["NTYPE"];
-				$selTYPE = "<select  class='form-control'  name='inputNType'><option value='1' ";
-				if ( $TYPE == 1)
-				{
-					$selTYPE .= " selected";
-				}
-				$selTYPE .= ">Notification</option>";
-				$selTYPE .= "<option value='2' ";
-				if ( $TYPE == 2)
-				{
-					$selTYPE .= " selected";
-				}
-				$selTYPE .= ">Invoice</option>";
-				$selTYPE .= "<option value='3' ";
-				if ( $TYPE == 3)
-				{
-					$selTYPE .= " selected";
-				}
-				$selTYPE .= ">Court Summons</option></select>";
-				$SDATE=$row["SDATE"];
-				$RDATE=$row["RDATE"];
+				$CDATE=$row["CDATE"];
 				$PROPID=$row["PROPID"];
-				$FEE=$row["FEE"];
-				$NOTES=$row["NOTES"];
+				$CDISP=$row["CDISP"];
+				$ADESC=$row["ADESC"];
 				$rowtot++;
 				$status="Please fill out as much information as possible.";
 			}
@@ -238,7 +201,7 @@
 		ORDER BY `OWNERS`.`FNAME` ASC 
 	");
 	$rowtot = 0;
-	$selection = "<select  class='form-control' name='inputOwner'>";
+	$selection = "<select class='form-control' name='inputOwner'>";
 	while($row=mysqli_fetch_assoc($query)){
 		$result[]=$row;
 		$rowtot++;
@@ -262,12 +225,40 @@
 		}
 		$selection .= "</select>";
 	}
-	else
-	{
-		print("<tr>
-				<td> No Owners on File - Click Add Owner to continue</td>
-				</tr>");
+	$rowtot = 0;
+	unset($result);
+	unset($query);
+	unset($result);
+	$query=mysqli_query($sql, "
+		SELECT * 
+		FROM PROPERTY
+		ORDER BY `ADDRNUM`,`STREET` ASC 
+	");
+	$pselection = "<select class='form-control' name='inputProperty'>";
+	while($row=mysqli_fetch_assoc($query)){
+		$result[]=$row;
+		$rowtot++;
 	}
+	if ( $rowtot > 0)
+	{
+		foreach($result as $key=>$value){
+			$pselection .= "<option value='";
+			$pselection .= $value["PROPID"];
+			$pselection .= "'";
+			if ( $PROPID == $value["PROPID"])
+			{
+				$pselection .= " selected";
+			}
+			
+			$pselection .= ">";
+			$pselection .= $value["ADDRNUM"];
+			$pselection .= " ";
+			$pselection .= $value["STREET"];
+			$pselection .= "</option>";
+		}
+		$pselection .= "</select>";
+	}
+	
 ?>
 
 <link type="text/css" href="css/jquery.datepick.css" rel="stylesheet">
@@ -278,15 +269,13 @@
 
 <script type="text/javascript">
 	jQuery(function($){
-	   $("#inputSDate").mask("9999-99-99");
-	   $("#inputRDate").mask("9999-99-99");
+	   $("#inputCDate").mask("9999-99-99");
 	});
 </script>
 
 <script type="text/javascript">
 $(function() {
-	$('#inputSDate').datepick({dateFormat: 'yyyy-mm-dd'});
-	$('#inputRDate').datepick({dateFormat: 'yyyy-mm-dd'});
+	$('#inputCDate').datepick({dateFormat: 'yyyy-mm-dd'});
 });
 </script>
 
@@ -304,53 +293,46 @@ $(function() {
         </div>
       </div>
     </div><!--/.navbar-collapse -->
-
+	
 <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method="post" class="form-horizontal" role="form" >
-<input type='hidden' id='inputNoticeID' name='inputNoticeID' value='<?php echo "$inc_id" ?> '>
+	
+	<input type='hidden' id='inputCActionID' name='inputCActionID' value='<?php echo "$inc_id" ?> '>
+	
 	<div class="col-xs-6 col-xs-offset-3">
         <div class="form-group">
             <label class="col-sm-6 control-label"><?echo "$status" ?></label>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Notice To - Owner</label>
+            <label class="col-sm-3 control-label">Action Against - Owner</label>
             <div class="col-sm-6">
 			  <?php echo $selection;?>
             </div>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Notice Type</label>
-            <div class="col-sm-3">
-			  <?php echo $selTYPE;?>
+            <label class="col-sm-3 control-label">Action Against - Property</label>
+            <div class="col-sm-6">
+			  <?php echo $pselection;?>
             </div>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Date Sent</label>
+            <label class="col-sm-3 control-label">Court Date</label>
             <div class="col-sm-2">
-			  <input class="form-control" type='text' 	id='inputSDate' name='inputSDate' value='<?php echo "$SDATE" ?>'>
+			  <input class="form-control" type='text' 	id='inputCDate' name='inputCDate' value='<?php echo "$CDATE" ?>'>
             </div>
 		</div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Date Received</label>
-            <div class="col-sm-2">
-			  <input class="form-control" type='text' 	id='inputRDate' name='inputRDate' value='<?php echo "$RDATE" ?>'>
-            </div>
-		</div>
-		<div class="form-group">
-            <label class="col-sm-3 control-label">Notice Fee</label>
-            <div class="col-sm-2">
-			  <input class="form-control" type='number' 	id='inputFee' name='inputFee' value='<?php echo "$FEE" ?>'>
-            </div>
-		</div>
-		<div class="form-group">
-            <label class="col-sm-3 control-label">Notes </label>
+            <label class="col-sm-3 control-label">Action Description </label>
             <div class="col-sm-6">
-			  <textarea rows='7' cols='60' class='form-control' id='inputNotes' name='inputNotes'><?php echo "$NOTES" ?></textarea>
+			  <textarea rows='7' cols='60' class='form-control' id='inputADesc' name='inputADesc'><?php echo "$ADESC" ?></textarea>
             </div>
 		</div>
-		<input type='submit' name='save' value='Save' class='button'><input type='submit' formnovalidate='formnovalidate' name='back' value='Back to list' class='button'>
-		<input type='hidden' name='writeRecord' value='1'>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Court Disposition </label>
+            <div class="col-sm-6">
+			  <textarea rows='7' cols='60' class='form-control' id='inputCDisp' name='inputCDisp'><?php echo "$CDISP" ?></textarea>
+            </div>
+		</div>
+	<input type='submit' name='save' value='Save' class='button'><input type='submit' name='back' value='Back to list' class='button'>
+	<input type='hidden' name='writeRecord' value='1'>
 	</div>
-<?php
-	include 'listPayments.php';
-?>
 </form>

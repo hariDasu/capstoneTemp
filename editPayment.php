@@ -1,5 +1,10 @@
 <?php
-
+	session_start();
+	if (!isset($_SESSION['AUTH']))
+	{
+		session_destroy();
+		header('Location: signIn.html');
+	}
 	 /**
 	  * This function can be used to check the sanity of variables
 	  *
@@ -66,7 +71,7 @@
 		$noticeID=$_POST["inputNoticeID"];
 		$paymentID=$_POST["inputPaymentID"];
 		$PTYPE=$_POST["inputPType"];
-		$selPTYPE = "<select name='inputPType'><option value='1' ";
+		$selPTYPE = "<select class='form-control' name='inputPType'><option value='1' ";
 		if ( $PTYPE == 1)
 		{
 			$selPTYPE .= " selected";
@@ -91,20 +96,18 @@
 		$status="";
 		if( checkdate( intval(substr($PDATE,6,2)) , intval(substr($PDATE, 8, 2 )) , intval(substr($PDATE, 1,4 ) )))
 		{
-			$PDATEErr = '';
 		}
 		else
 		{
-			$PDATEErr = 'Invalid Payment Date Supplied';
+			$status = 'Invalid Payment Date Supplied';
 			$CHECKPASS = false;
 		}
-		if( !empty($PAMOUNT) && is_numeric($_GET['id']) && $PAMOUNT != '0' )
+		if( !empty($PAMOUNT) && is_numeric($PAMOUNT) && $PAMOUNT != '0' )
 		{
-			$PAMOUNTErr = '';
 		}
 		else
 		{
-			$PAMOUNTErr = 'Payment amount invalid. Must be a number larger than 0';
+			$status = 'Payment amount invalid. Must be a number larger than 0';
 			$CHECKPASS = false;
 		}
 		if ($CHECKPASS)
@@ -146,10 +149,8 @@
 		}
 		else 
 		{
-			if ( $status == "")
-			{
-				$status = "Correct errors listed below then submit again";
-			}
+			$status = "<FONT COLOR='FF0000'>".$status."</FONT>";
+			
 		}
 	}
 	else
@@ -162,13 +163,11 @@
 		{
 			$noticeID = $_REQUEST['noticeid'];
 			$PTYPE="1";
-			$selPTYPE = "<select name='inputPType'><option value='1' selected >Cash</option>";
+			$selPTYPE = "<select class='form-control' name='inputPType'><option value='1' selected >Cash</option>";
 			$selPTYPE .= "<option value='2' >Credit Card</option>";
 			$selPTYPE .= "<option value='3' >Check</option></select>";
 			$PDATE="";
 			$PAMOUNT="";
-			$PDATEErr="";
-			$PAMOUNTErr = "";
 			$status="Please fill out as much information as possible.";
 		}
 		else
@@ -183,7 +182,7 @@
 			while($row=mysqli_fetch_assoc($query)){
 				$noticeID = $row["NOTICEID"];
 				$PTYPE=$row["PTYPE"];
-				$selPTYPE = "<select name='inputPType'><option value='1' ";
+				$selPTYPE = "<select class='form-control' name='inputPType'><option value='1' ";
 				if ( $PTYPE == 1)
 				{
 					$selPTYPE .= " selected";
@@ -203,8 +202,6 @@
 				$selPTYPE .= ">Check</option></select>";
 				$PDATE=$row["PDATE"];
 				$PAMOUNT=$row["PAMOUNT"];
-				$PDATEErr="";
-				$PAMOUNTErr="";
 				$rowtot++;
 				$status="Please fill out as much information as possible.";
 			}
@@ -225,39 +222,62 @@
 <script type="text/javascript" src="js/datepick/jquery.datepick.js"></script>
 
 <script type="text/javascript">
+	jQuery(function($){
+	   $("#inputPDate").mask("9999-99-99");
+	});
+</script>
+
+<script type="text/javascript">
 $(function() {
-	$('#inputSDate').datepick({dateFormat: 'yyyy-mm-dd'});
-	$('#inputRDate').datepick({dateFormat: 'yyyy-mm-dd'});
+	$('#inputPDate').datepick({dateFormat: 'yyyy-mm-dd'});
 });
 </script>
 
-<form id='login' action='<?php echo $_SERVER['PHP_SELF'];?>' method='post' >
-<table>
-	<tr>
-		<td colspan="3"><?echo "$status" ?></td>
-	</tr>
-	<tr>
-		<td>Notice # </td>
-		<td><?php echo $noticeID;?></td>
-		<input type='hidden' id='inputNoticeID' name='inputNoticeID' value='<?php echo "$noticeID" ?> '>
-		<input type='hidden' id='inputPaymentID' name='inputPaymentID' value='<?php echo "$paymentID" ?> '>
-	</tr>
-	<tr>
-		<td>Payment Type</td>
-		<td><?php echo $selPTYPE;?></td>
-	</tr>
-	<tr>
-		<td>Payment Date</td>
-		<td><input type='text' 	id='inputSDate' name='inputPDate' value='<?php echo "$PDATE" ?>'></td>
-		<td><?php echo $PDATEErr;?></td>
-	</tr>
-	<tr>
-		<td>Payment Amount</td>
-		<td><input type='text' 	id='inputPAmount' name='inputPAmount' value='<?php echo "$PAMOUNT" ?>'></td>
-		<td><?php echo $PAMOUNTErr;?></td>
-	</tr>
+<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-switch.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="splash.php">Spot The Lot - City of Paterson</a>
+        </div>
+      </div>
+    </div><!--/.navbar-collapse -->
+
+<form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method="post" class="form-horizontal" role="form" >
+	<input type='hidden' id='inputNoticeID' name='inputNoticeID' value='<?php echo "$noticeID" ?> '>
+	<input type='hidden' id='inputPaymentID' name='inputPaymentID' value='<?php echo "$paymentID" ?> '>
+	<div class="col-xs-6 col-xs-offset-3">
+        <div class="form-group">
+            <label class="col-sm-6 control-label"><?echo "$status" ?></label>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-4 control-label">Notice # <?php echo $noticeID;?></label>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Payment Type</label>
+            <div class="col-sm-3">
+			  <?php echo $selPTYPE;?>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Payment Date</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='text' 	id='inputPDate' name='inputPDate' value='<?php echo "$PDATE" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Payment Amount</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='number' 	id='inputPAmount' name='inputPAmount' value='<?php echo "$PAMOUNT" ?>' pattern=".{3,}" required title="Payment Amount is a required field"'>
+            </div>
+		</div>
+	
 	<tr><td><input type='submit' name='save' value='Save' class='button'><input type='submit' name='back' value='Back to list' class='button'></td>
 	<input type='hidden' name='writeRecord' value='1'>
-	</tr>
-</table>
+	</div>
 </form>

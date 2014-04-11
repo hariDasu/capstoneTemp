@@ -1,5 +1,11 @@
 <?php
-
+	
+	session_start();
+	if (!isset($_SESSION['AUTH']))
+	{
+		session_destroy();
+		header('Location: signIn.html');
+	}
 	 /**
 	  * This function can be used to check the sanity of variables
 	  *
@@ -70,34 +76,21 @@
 		{
 		//If all is well we can  assign the value of POST field to a variable
 			$FNAME = $_POST['inputFName'];
-			$FNameErr = '';
 		}
 		else
 		{
 			$FNAME = $_POST['inputFName'];
-			$FNameErr = 'First Name is empty or invalid';
+			$status = 'First Name is empty or invalid';
 			$CHECKPASS = false;
 		}
-		if( empty($_POST['inputEmail']) || checkEmail($_POST['inputEmail']) != FALSE)
-		{
-			// if the checks are ok for the email we assign the email address to a variable
-			$EMAIL=$_POST["inputEmail"];
-			$EmailErr = '';
-		}
-		else
-		{
-			$EMAIL=$_POST["inputEmail"];
-			$EmailErr = 'Invalid E-mail Address Supplied';
-			$CHECKPASS = false;
-		}
+		
 		if( empty($_POST['inputDOB']) || $DOB=="0000-00-00" || checkdate( intval(substr($DOB,6,2)) , intval(substr($DOB, 8, 2 )) , intval(substr($DOB, 1,4 ) )))
 		{
 			// if the checks are ok for the email we assign the email address to a variable
-			$DOBErr = '';
 		}
 		else
 		{
-			$DOBErr = 'Invalid Date of Birth Supplied';
+			$status = 'Invalid Date of Birth Supplied';
 			$CHECKPASS = false;
 		}
 		if ($CHECKPASS)
@@ -152,10 +145,7 @@
 		}
 		else 
 		{
-			if ( $status == "")
-			{
-				$status = "Correct errors listed below then submit again";
-			}
+			$status = "<FONT COLOR='FF0000'>".$status."</FONT>";
 		}
 	}
 	else
@@ -178,9 +168,6 @@
 			$CPHONE="";
 			$DOB="";
 			$EMAIL="";
-			$FNameErr="";
-			$EmailErr="";
-			$DOBErr="";
 			$status="Please fill out as much information as possible.";
 		}
 		else
@@ -220,9 +207,6 @@
 					$DOB=$row["DOB"];
 					$EMAIL=$row["EMAIL"];
 					$rowtot++;
-					$FNameErr="";
-					$EmailErr="";
-					$DOBErr="";
 					$status="Please fill out as much information as possible.";
 				}
 				if ( $rowtot == 0){
@@ -255,66 +239,101 @@ $(function() {
 });
 </script>
 
-<form id='login' action='<?php echo $_SERVER['PHP_SELF'];?>' method='post' >
-<table>
-<input type='hidden' id='inputOwnerID' name='inputOwnerID' value='<?php echo "$inc_id" ?> '>
-	<tr>
-		<td colspan="3"><?echo "$status" ?></td>
-	</tr>
-	<tr>
-		<td>First Name</td>
-		<td><input type='text' 	id='inputFName' name='inputFName' value='<?php echo "$FNAME" ?>' maxlength='50' ></td>
-		<td><?php echo $FNameErr;?></td>
-	</tr>
-	<tr>
-		<td>Middle Name</td>
-		<td><input type='text' 	id='inputMName' name='inputMName' value='<?php echo "$MNAME" ?>'></td>
-	</tr>
-	
-	<tr>
-		<td>Last Name</td>
-		<td><input type='text' 	id='inputLName' name='inputLName' value='<?php echo "$LNAME" ?>'></td>
-	</tr>
-	<tr>
-		<td>Social Security #</td>
-		<td><input type='text' 	id='inputSocial' name='inputSocial' value='<?php echo "$SOCIAL" ?>'></td>
-	</tr>
-	<tr>
-		<td>Address Line</td>
-		<td><input type='text' 	id='inputAddress' name='inputAddress' value='<?php echo "$ADDRESS" ?>'></td>
-	</tr>
-	<tr>
-		<td>City</td>
-		<td><input type='text' 	id='inputCity' name='inputCity' value='<?php echo "$CITY" ?>'></td>
-	</tr>
-	<tr>
-		<td>State</td>
-		<td><input type='text' 	id='inputState' name='inputState' value='<?php echo "$STATE" ?>'></td>
-	</tr>
-	<tr>
-		<td>Zip</td>
-		<td><input type='text' 	id='inputZip' name='inputZip' value='<?php echo "$ZIP" ?>'></td>
-	</tr>
-	<tr>
-		<td>Home Phone #</td>
-		<td><input type='text' 	id='inputHPhone' name='inputHPhone' value='<?php echo "$HPHONE" ?>'></td>
-	</tr>
-	<tr>
-		<td>Cell Phone #</td>
-		<td><input type='text' 	id='inputCPhone' name='inputCPhone' value='<?php echo "$CPHONE" ?>'></td>
-	</tr>
-	<tr>
-		<td>Date of Birth</td>
-		<td><input type='text' 	id='inputDOB' name='inputDOB' value='<?php echo "$DOB" ?>'></td>
-		<td><?php echo $DOBErr;?></td>
-	</tr>
-	<tr>
-		<td>E-mail</td>
-		<td><input type='text' 	id='inputEmail' name='inputEmail' value='<?php echo "$EMAIL" ?>'></td>
-		<td><?php echo $EmailErr;?></td>
-	
-	<tr><td><input type='submit' name='save' value='Save' class='button'><input type='submit' name='back' value='Back to list' class='button'></td>
-	<input type='hidden' name='writeRecord' value='1'>
-	</tr>
+<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-switch.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="splash.php">Spot The Lot - City of Paterson</a>
+        </div>
+      </div>
+    </div><!--/.navbar-collapse -->
+
+<form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method="post" class="form-horizontal" role="form" >
+	<input type='hidden' id='inputOwnerID' name='inputOwnerID' value='<?php echo "$inc_id" ?> '>
+	<div class="col-xs-6 col-xs-offset-3">
+        <div class="form-group">
+            <label class="col-sm-6 control-label"><?echo "$status" ?></label>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">First Name</label>
+            <div class="col-sm-6">
+			  <input class="form-control" type='text' 	id='inputFName' name='inputFName' value='<?php echo "$FNAME" ?>' maxlength='50' pattern=".{3,}" required title="First Name is a Required Field" ></td>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Middle Name</label>
+            <div class="col-sm-6">
+			  <input class="form-control" type='text' 	id='inputMName' name='inputMName' value='<?php echo "$MNAME" ?>' maxlength='50' >
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Last Name</label>
+            <div class="col-sm-6">
+			  <input class="form-control" type='text' 	id='inputLName' name='inputLName' value='<?php echo "$LNAME" ?>' maxlength='50' >
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Social Security #</label>
+            <div class="col-sm-4">
+			  <input class="form-control" type='text' 	id='inputSocial' name='inputSocial' value='<?php echo "$SOCIAL" ?>' >
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Address Line</label>
+            <div class="col-sm-6">
+			  <input class="form-control" type='text' 	id='inputAddress' name='inputAddress' value='<?php echo "$ADDRESS" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">City</label>
+            <div class="col-sm-4">
+			  <input class="form-control" type='text' 	id='inputCity' name='inputCity' value='<?php echo "$CITY" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">State</label>
+            <div class="col-sm-1">
+			  <input class="form-control" type='text' 	id='inputState' name='inputState' value='<?php echo "$STATE" ?>' maxlength='3''>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Zip</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='text' 	id='inputZip' name='inputZip' value='<?php echo "$ZIP" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Home Phone #</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='text' 	id='inputHPhone' name='inputHPhone' value='<?php echo "$HPHONE" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Cell Phone #</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='text' 	id='inputCPhone' name='inputCPhone' value='<?php echo "$CPHONE" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">Date of Birth</label>
+            <div class="col-sm-2">
+			  <input class="form-control" type='text' 	id='inputDOB' name='inputDOB' value='<?php echo "$DOB" ?>'>
+            </div>
+        </div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label">E-mail</label>
+            <div class="col-sm-3">
+			  <input class="form-control" type='text' 	id='inputEmail' name='inputEmail' value='<?php echo "$EMAIL" ?>' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='E-mail must be in the form sample@sampleemail.com' ></td>
+            </div>
+        </div>
+		<input type='submit' name='save' value='Save' class='button'><input type='submit' formnovalidate='formnovalidate' name='back' value='Back to list' class='button'>
+		<input type='hidden' name='writeRecord' value='1'>
+	</div>
 </table>
 </form>

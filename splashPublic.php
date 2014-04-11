@@ -35,12 +35,18 @@ ini_set('display_errors',1);
       <div class="container">
         <div class="navbar-header">
           
-          <a class="navbar-brand" href="index.html">Spot The Lot - City of Paterson</a>
+          <a class="navbar-brand" href="index.html">Spot The Lot - City of Paterson: User Dashboard</a>
         </div>
           
         <div class="navbar-collapse pull-right">
           <form class="navbar-form" role="form">
-            
+           
+		   <div class='pull-right'>
+			  <a class='pull-right button btn btn-primary' href='logout.php'>
+			Log Out</a>
+		<b><?php $username=$_SESSION['USERNAME']; 
+		echo "$username"; ?></b>&nbsp;&nbsp;
+					</div>
             <div class="button-group">
              
                 <div class="dropdown-menu pull-right">
@@ -53,19 +59,67 @@ ini_set('display_errors',1);
     </div>
     <div class='panel-heading'><h2><b>Properties you have entered</b></h2>
 
-        <form class='navbar-form navbar-right' role='form'>
+        <form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="splash.php">Return to full List</a>
+                <a class="btn btn-success" href="splash.php">Main List</a>
             </div>
         </form>
         <form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="addPublicEntry.php">Add more</a>
+                <a class="btn btn-success" href="addPublicEntry.php">Add Property</a>
             </div>
         </form>
-
+		<form class='navbar-form navbar-left' role='form'>
+            <div class='form-group'>
+                &nbsp;
+                <a class="btn btn-success" href="useradmin.php">Edit User Account</a>
+            </div>
+        </form>
+		<?php 
+			if ($_SESSION['UTYPE'] == 3)
+			{
+				print("
+					<form class='navbar-form navbar-right' role='form'>
+						<div class='form-group'>
+							&nbsp;
+							<a class='btn btn-success' href='listUsers.php'>User Administration</a>
+						</div>
+					</form>
+					");
+			}
+			if ($_SESSION['UTYPE'] > 1)
+			{
+				print("
+					<form class='navbar-form navbar-right' role='form'>
+						<div class='form-group'>
+							&nbsp;
+							<a class='btn btn-success' href='listCourtA.php'>Create/Edit Court Actions</a>
+						</div>
+					</form>
+					");
+					print("
+					<form class='navbar-form navbar-right' role='form'>
+						<div class='form-group'>
+							&nbsp;
+							<a class='btn btn-success' href='listNotices.php'>Create/Edit Notices</a>
+						</div>
+					</form>
+				");
+				print("
+					<form class='navbar-form navbar-right' role='form'>
+						<div class='form-group'>
+							&nbsp;
+							<a class='btn btn-success' href='listOwners.php'>Create/Edit Owners</a>
+						</div>
+					</form>
+				");
+				
+				
+			}
+			
+		?>
     </div>
   
     <br><br><br>
@@ -140,9 +194,9 @@ ini_set('display_errors',1);
 
                             echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>  <td>', $value["BOARDED"];
                             echo '</td><td>',$value["SPOST"],' </td>  <td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
-                              
-                                //----load image if available and modal----
                                 if(!empty($value["PHOTOLOC"]) ){ 
+                                    //************testing*****************
+                                  
                                     $string =array();
                                     $filePath=$value["PHOTOLOC"];  
                                     $dir = opendir($filePath);
@@ -154,9 +208,7 @@ ini_set('display_errors',1);
                                     while (sizeof($string) != 0){
                                       $img = array_pop($string);
 
-                                    ?>
-
-
+                                    ?> 
                                         <html>
                                         <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -184,7 +236,7 @@ ini_set('display_errors',1);
                                     <?php
                                     }
                                     
-                                } //---end image processing----------   
+                                }    
                                 else{
                                    echo '<td></td>';
                                 }
