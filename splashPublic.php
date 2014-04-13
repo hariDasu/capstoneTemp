@@ -129,9 +129,13 @@ ini_set('display_errors',1);
                             }
                             else
                             {
+                                $page = (int) (!isset($_GET["page"]) ? 1 : $_GET["page"]);
+                                $limit = 2;
+                                $startpoint = ($page * $limit) - $limit;
                                // find all entries for user
                                 $query=mysqli_query($sql, "SELECT * 
                                     FROM PROPERTY WHERE LUSERID='$_SESSION[USERID]'
+                                    LIMIT {$startpoint}, {$limit}
                                     ORDER BY `STREET` ASC 
                                 ");
                                 $rowtot = 0;
@@ -143,7 +147,7 @@ ini_set('display_errors',1);
                                 if ( $rowtot > 0)
                                 { 
                                     ?>
-                                    <table  cellpadding="0" cellspacing="0" border="0" id="notPretty" class="table table-hover table-bordered" width="100%">
+                                    <table  cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
                           
                                           <thead>
                                               <tr>
@@ -319,10 +323,7 @@ ini_set('display_errors',1);
                 });
             $('#prettyTable').dataTable(
                         {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-                        "iDisplayLength" : 10,
-                        "bProcessing": true,
-                        "bServerSide": true,
-                        "sAjaxSource": "properties.php"
+                        "iDisplayLength" : 10
                         
                         });  
         })</script>
