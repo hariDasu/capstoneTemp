@@ -165,7 +165,7 @@ ini_set('display_errors',1);
                                 if ( $rowtot > 0)
                                 { 
                                     ?>
-                                    <table  cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
+                                    <table  cellpadding="0" cellspacing="0" border="0" id="notPretty" class="table table-hover table-bordered" width="100%">
                           
                                           <thead>
                                               <tr>
