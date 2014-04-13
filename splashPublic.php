@@ -108,7 +108,6 @@ ini_set('display_errors',1);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <table>
                     <?php
                             //header("Content-Type: text/html");
 
@@ -323,7 +322,7 @@ ini_set('display_errors',1);
                         "iDisplayLength" : 5,
                         "aoColumns": [null,
                                       {"mData":null,
-                                        "sDefaultContent":"Edit"
+                                        "sDefaultContent": "Edit"
                                       }
                                     ]
                         });  
