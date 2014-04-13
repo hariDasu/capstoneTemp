@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Spot The Lot - City of Paterson</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-switch.css" rel="stylesheet">
+
+    
+   
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+    
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#">Spot The Lot - City of Paterson</a>
+        </div>
+          
+       
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="text-center modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+        <form id="login" action="auth.php" method="post" accept-charset="UTF-8">
+      <div class="modal-body">
+        
+                  <input id="username"  type="text" name="username" size="30" placeholder="Username..." /><br>
+                  <input id="password" type="password" name="password" size="30" placeholder="Password..."/><br><br>
+                  <!--<input id="user_remember_me"  type="checkbox" name="user[remember_me]" value="1" />-->
+                     <br>
+            
+                
+                  
+    
+                  <p class="text-center">Entry for authorized City of Paterson Personnel only</p>
+            
+          
+
+      </div>
+      <div class="modal-footer">
+          <a href="register.html">
+          
+              </a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<input type="submit button" class="button btn btn-primary" name="login" value="submit">-->
+        <input type="submit" name="login" value="submit" class="button">
+          
+      </div>
+            </form>
+    </div>
+  </div>
+</div> 
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        
+            <br><br><br>
+            <br>
+            <a href="index.html">Go back...</a>
+          
+<div class="row">
+    <form id="login" action="auth.php" method="post" accept-charset="UTF-8" class="form-horizontal" role="form">
+        
+    <div class="col-sm-6">
+        <h3 class="text-center">Database Connection Failed!</h3>
+  
+     
+         </div>
+      
+ </form>
+        </div>
+  
+  
+
+        
+        
+          </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script>
+        $( document ).ready(function() {
+    $('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active');  
+    
+    if ($(this).find('.btn-primary').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-primary');
+    }
+    if ($(this).find('.btn-danger').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-danger');
+    }
+    if ($(this).find('.btn-success').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-success');
+    }
+    if ($(this).find('.btn-info').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-info');
+    }
+    
+    $(this).find('.btn').toggleClass('btn-default');
+       
+});
+
+/*$('form').submit(function(){
+	//alert($(this["options"]).val());
+    return false;
+});*/
+});
+    </script>
+    
+  </body>
+</html>

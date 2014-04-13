@@ -39,7 +39,8 @@ $conn = mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson"
 
 if(mysqli_connect_errno($conn))
 {
-	echo "Database connection failed!" . "<br />";
+	$nullDB = file_get_contents('nulldb.html');
+	echo "$nulldb";
 }
 else
 {
@@ -57,8 +58,8 @@ else
 		}
 		else
 		{
-			echo "verication email failed to be sent. please try again with different credentials. or contact system administrators.";
-		}
+			$verFail = file_get_contents('verFail.html');
+			echo "$verFail";
 	}
 	else
 	{

@@ -167,7 +167,7 @@ ini_set('display_errors',1);
             { 
                 ?>
                    <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-bordered">
                                <tr> <td></td>
                                     <td>Block</td>
                                     <td>Lot</td>
