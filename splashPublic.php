@@ -171,6 +171,9 @@ ini_set('display_errors',1);
       
                       <thead>
                           <tr>
+                                <th width="4%">
+                                    Edit
+                                </th>
                               <th width="9%">
                                   Block
                               </th>
@@ -192,10 +195,10 @@ ini_set('display_errors',1);
                               <th width="9%">
                                   Street
                               </th>
-                              <th width="9%">
+                              <th width="8%">
                                   Zip Code
                               </th>
-                              <th width="9%">
+                              <th width="8%">
                                   Boarded
                               </th>
                               <th width="9%">
@@ -204,10 +207,10 @@ ini_set('display_errors',1);
                               <th width="8%">
                                   Description
                               </th>
-                              <th width="10%">
+                              <th width="9%">
                                   Comments
                               </th>
-                              <th width="10%">
+                              <th width="9%">
                                   Photo
                               </th>
                           
