@@ -320,6 +320,7 @@ ini_set('display_errors',1);
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
     <script src="js/bootstrap-switch.js"></script>
     <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>  
     <script>
