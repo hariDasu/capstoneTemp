@@ -344,21 +344,8 @@ ini_set('display_errors',1);
                         "iDisplayLength" : 10,
                         "bProcessing": true,
                         "bServerSide": true,
-                        "sAjaxSource": "properties.php",
-                        "aoColumns": [
-                                        { "mData": null }, 
-                                        { "mData": "Block" },
-                                        { "mData": "Lot" }, 
-                                        { "mData": "Ward" }, 
-                                        { "mData": "Address" },
-                                        { "mData": "Street" },
-                                        { "mData": "Zip Code" },
-                                        { "mData": "Boarded" },
-                                        { "mData": "Sign Posted" },
-                                        { "mData": "Description" },
-                                        { "mData": "Comments" },
-                                        { "mData": "Photo"}
-]
+                        "sAjaxSource": "properties.php"
+                        
                         });  
         })</script>
 
