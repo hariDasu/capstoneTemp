@@ -108,6 +108,7 @@ ini_set('display_errors',1);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+            	<a class="btn btn-success" href='editCAction.php?courtid=new'>New Court Action</a>
             	<table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
 <?php
 		//header("Content-Type: text/html");
@@ -129,7 +130,7 @@ ini_set('display_errors',1);
 		}
 		else
 		{
-			print("<tr><td><a href='editCAction.php?courtid=new'>New Court Action</a></td><tr>");
+			
 			$query=mysqli_query($sql, "
 				SELECT * 
 				FROM CACTIONS
