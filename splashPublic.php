@@ -215,7 +215,7 @@ ini_set('display_errors',1);
                         </tr>
                       </thead>
                      
-                  </table>
+                  
                    <!--<div class="table-responsive">-->
                         <!-- <table class="table table-hover table-bordered">
                                <tr> <td></td>
