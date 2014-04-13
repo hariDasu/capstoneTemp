@@ -74,7 +74,7 @@ ini_set('display_errors',1);
 		<form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="useradmin.php">Edit User Account</a>
+                <a class="btn btn-success" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
             </div>
         </form>
 		<?php 

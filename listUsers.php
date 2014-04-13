@@ -42,7 +42,7 @@
 				
 				print("&nbsp;");
 						print("<tr>
-						<td><a href='editUser.php?ownerid=".$value["USERID"]."'>Edit</a>
+						<td><a href='editUser.php?userid=".$value["USERID"]."'>Edit</a>
 						<a href='deleteuser.php?id=".$value["USERID"]."' onclick=\"return confirm('Remove ".$value["USERNAME"]."?');\">Delete</a></td>
 						<td>".$value["USERNAME"]." </td>  <td> ".$value["LNAME"]."</td>
 						<td>".$value["FNAME"]." </td> <td>");			
