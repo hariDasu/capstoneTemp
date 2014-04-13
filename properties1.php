@@ -7,7 +7,7 @@
 	 * you want to insert a non-database field (for example a counter or static image)
 	 */
 	$aColumns = array('BLOCK', 'LOT', 'WARD', 'ADDRNUM','STREET', 'ZIP',
-                     'BOARDED', 'SPOST', 'PDESC','LCOMMENT','PHOTO');
+                     'BOARDED', 'SPOST', 'PDESC','LCOMMENT','PHOTOLOC');
 	
 	/* Indexed column (used for fast and accurate table cardinality) */
 	$sIndexColumn = "PROPID";
