@@ -129,13 +129,10 @@ ini_set('display_errors',1);
                             }
                             else
                             {
-                                $page = (int) (!isset($_GET["page"]) ? 1 : $_GET["page"]);
-                                $limit = 2;
-                                $startpoint = ($page * $limit) - $limit;
+                            
                                // find all entries for user
                                 $query=mysqli_query($sql, "SELECT * 
                                     FROM PROPERTY WHERE LUSERID='$_SESSION[USERID]'
-                                    LIMIT {$startpoint}, {$limit}
                                     ORDER BY `STREET` ASC 
                                 ");
                                 $rowtot = 0;
