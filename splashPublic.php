@@ -62,25 +62,26 @@ ini_set('display_errors',1);
       </div>
     </div>
     <div class='panel-heading'><h2><b>Properties you have entered</b></h2>
-
+        <div class="btn-group">
         <form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="splash.php">Main List</a>
+                <a class="btn btn-default" href="splash.php">Main List</a>
             </div>
         </form>
         <form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="addPublicEntry.php">Add Property</a>
+                <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
             </div>
         </form>
         <form class='navbar-form navbar-left' role='form'>
             <div class='form-group'>
                 &nbsp;
-                <a class="btn btn-success" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
+                <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
             </div>
         </form>
+    </div>
         <?php 
             if ($_SESSION['UTYPE'] == 3)
             {
