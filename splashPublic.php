@@ -337,15 +337,12 @@ ini_set('display_errors',1);
                 $('#mimgModal').on('hidden.bs.modal', function(){
                     $('#imgModal .modal-body').html('');
                 });
-                $('#prettyTable').dataTable(
-                    {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-                    "iDisplayLength" : 10,
-                    "bProcessing": true,
-                    "bServerSide": true,
-                    "sAjaxSource": "properties.php"
-        
-                    });
-                });  
+
+                });
+            $('#prettyTable').dataTable(
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+                        "iDisplayLength" : 10
+                    });  
         })</script>
 
       
