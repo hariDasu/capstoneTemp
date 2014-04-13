@@ -229,7 +229,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
             "iDisplayLength" : 10,
             "bProcessing": true,
             "bServerSide": true,
-            "sAjaxSource": "properties.php"
+            "sAjaxSource": "properties1.php"
         });
 
 
