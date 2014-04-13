@@ -166,8 +166,57 @@ ini_set('display_errors',1);
             if ( $rowtot > 0)
             { 
                 ?>
-                   <div class="table-responsive">
-                        <table class="table table-hover table-bordered">
+                <table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
+      
+                      <thead>
+                          <tr>
+                              <th width="9%">
+                                  Block
+                              </th>
+                    
+                          
+                              <th width="9%">
+                                  Lot
+                              </th>
+                          
+                      
+                          
+                              <th width="9%">
+                                  Ward
+                              </th>
+                              
+                              <th width="9%">
+                                  Address
+                              </th>
+                              <th width="9%">
+                                  Street
+                              </th>
+                              <th width="9%">
+                                  Zip Code
+                              </th>
+                              <th width="9%">
+                                  Boarded
+                              </th>
+                              <th width="9%">
+                                  Sign Posted
+                              </th>
+                              <th width="8%">
+                                  Description
+                              </th>
+                              <th width="10%">
+                                  Comments
+                              </th>
+                              <th width="10%">
+                                  Photo
+                              </th>
+                          
+                      
+                        </tr>
+                      </thead>
+                     
+                  </table>
+                   <!--<div class="table-responsive">-->
+                        <!-- <table class="table table-hover table-bordered">
                                <tr> <td></td>
                                     <td>Block</td>
                                     <td>Lot</td>
@@ -180,7 +229,7 @@ ini_set('display_errors',1);
                                     <td>Descriptions</td>
                                     <td>Comments</td>
                                     <td>Photo</td>
-                                </tr>
+                                </tr> -->
                 
                     <?php
                     echo '<tr>';
