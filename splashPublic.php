@@ -320,7 +320,7 @@ ini_set('display_errors',1);
                 });
             $('#prettyTable').dataTable(
                         {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-                        "iDisplayLength" : 10,
+                        "iDisplayLength" : 5,
                         "aoColumns": [null,
                                       {"mData":null,
                                         "sDefaultContent":"Edit"
