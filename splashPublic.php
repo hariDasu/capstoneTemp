@@ -27,6 +27,7 @@ ini_set('display_errors',1);
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/bootstrap-switch.css" rel="stylesheet">
+      <link href="css/dataTables.bootstrap.css" rel="stylesheet">
 </head>
 
   <body>
@@ -317,6 +318,7 @@ ini_set('display_errors',1);
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-switch.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>  
     <script>
       $(document).ready(function(){
            $('img').on('click',function(){
@@ -329,8 +331,29 @@ ini_set('display_errors',1);
                 $('#mimgModal').on('hidden.bs.modal', function(){
                     $('#imgModal .modal-body').html('');
                 });
+                $('#prettyTable').dataTable({
+        "aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+        "iDisplayLength" : 10
+        
+    });
            });  
         })</script>
+
+      
+<script>
+        $( document ).ready(function() {
+            $('#login').submit(function(){
+    console.log($(this));
+    return false;
+});
+    
+
+
+});
+ 
+    
+   
+    </script>
     
   </body>
 </html>
