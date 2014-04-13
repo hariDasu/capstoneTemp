@@ -65,22 +65,13 @@ ini_set('display_errors',1);
         <form class='navbar-form navbar-left' role='form'>
         <div class="btn-group">
         
-            <div class='form-group'>
-                &nbsp;
+            
                 <a class="btn btn-default" href="splash.php">Main List</a>
-            </div>
-        
-        
-            <div class='form-group'>
-                &nbsp;
+                 
                 <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
-            </div>
-        
-        
-            <div class='form-group'>
-                &nbsp;
+     
                 <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
-            </div>
+            
         
             </div>
         </form>
