@@ -235,7 +235,7 @@ if(isset($_POST['writeRecord'])) {
  <div class="container-fluid">
     <div class="row">
         <br>
-        <a href="listPublic.php">Return to your entries... </a>   
+        <a href="splashPublic.php">Return to your entries... </a>   
     </div>  
 
   <div class="row">
