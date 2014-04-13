@@ -168,7 +168,7 @@
 				$row[] = $aRow[ $aColumns[$i] ];
 			}
 		}
-			$row[0] = '<a id="'.$aRow['id'].'" href="#" class="delete_link">Remove</a>';
+			#$row[0] = '<a id="'.$aRow['id'].'" href="#" class="delete_link">Remove</a>';
 		$output['aaData'][] = $row;
 	}
 	
