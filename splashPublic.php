@@ -91,29 +91,14 @@ ini_set('display_errors',1);
             {
                 print("
                     <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
+                        <div class='btn-group'>
                             &nbsp;
-                            <a class='btn btn-success' href='listCourtA.php'>Create/Edit Court Actions</a>
-                        </div>
+                            <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
+                             <a class='btn btn-success' href='listNotices.php'>Create/Edit Notices</a>
+                             <a class='btn btn-success' href='listOwners.php'>Create/Edit Owners</a>
                     </form>
                     ");
-                    print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='listNotices.php'>Create/Edit Notices</a>
-                        </div>
-                    </form>
-                ");
-                print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='listOwners.php'>Create/Edit Owners</a>
-                        </div>
-                    </form>
-                ");
-                
+                    
                 
             }
             
