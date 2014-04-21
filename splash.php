@@ -133,13 +133,15 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
 
             <div class='panel-heading'><h2><b>Properties</b></h2>
-
+            <div class="row">                
+            <a class="btn btn-default" href="splashPublic.php">My Entries</a>
             <form class='navbar-form navbar-right' role='form'>
             <div class='form-group'>
               &nbsp;
             <a class="btn btn-success" href="addPublicEntry.php">Add Entry to List</a>
             </div>
                 </form>
+            </div>
             </div>
 
 
