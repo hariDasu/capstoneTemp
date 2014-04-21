@@ -25,6 +25,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit;
 }
 
+
+	$SIGNSEL = "<select class='form-control' name='inputSign'><option value='1' ";
+	if ( $SPOST == 1)
+	{
+		$SIGNSEL .= " selected";
+	}
+	$SIGNSEL .= ">Yes</option>";
+	$SIGNSEL .= "<option value='2' ";
+	if ( $SPOST == 2)
+	{
+		$SIGNSEL .= " selected";
+	}
+	$SIGNSEL .= ">No</option></select>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,31 +131,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="form-group">
                 <label for="inputBoarded" class="col-xs-2 control-label">Boarded</label>
                 <div class="col-xs-2">
-                  <input  class="form-control" id="inputBoarded" name="inputBoarded" placeholder="Y/N">
+					<select class='form-control' name='inputBoarded'>
+						<option value='1'>Yes</option>;
+						<option value='2'>No</option>
+					</select>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="inputSign" class="col-xs-2 control-label">Sign</label>
                 <div class="col-xs-2">
-                  <input  class="form-control" id="inputSign" name="inputSign" placeholder="Y/N">
+					<select class='form-control' name='inputSign'>
+						<option value='1'>Yes</option>;
+						<option value='2'>No</option>
+					</select>
                 </div>
               </div>
                 
               <div class="form-group">
                 <label for="inputDescription" class="col-sm-2 control-label">Property Description</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Property Description">
+                  <textarea rows='7' cols='60' class='form-control' id='inputDescription' name='inputDescription' placeholder='Property Description'><?php echo "$PDESC" ?></textarea>
                 </div>
               </div>
 
-              <div class="form-group">
+                <div class="form-group">
                 <label for="inputComments" class="col-sm-2 control-label">Comments</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="inputComments" name="inputComments" placeholder="Comments...">
+                  <textarea rows='7' cols='60' class='form-control' id='inputComments' name='inputComments' placeholder='Comments'><?php echo "$LCOMMENT" ?></textarea>				
                 </div>
               </div>
-                   <p>File <input type="file" name="image"><p>
+                   <p>File <input type="file" multiple name="image[]"><p>
                    <input TYPE="submit" name="upload" title="Add data to the Database" value="submit"/>           
             </div>
           </form><!--form collapse-->

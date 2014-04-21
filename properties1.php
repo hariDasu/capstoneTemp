@@ -162,6 +162,18 @@
 				/* Special output formatting for 'version' column */
 				$row[] = ($aRow[ $aColumns[$i] ]=="0") ? '-' : $aRow[ $aColumns[$i] ];
 			}
+			else if ( $aColumns[$i] == "BOARDED" || $aColumns[$i] == "SPOST" )
+			{
+				/* Special output formatting for 'Boarded / Sign Posted' column */
+				if ($aRow[ $aColumns[$i] ] == 1)
+				{
+					$row[] = "Y";
+				}
+				else 
+				{
+					$row[] = "N";
+				}
+			}
 			else if ( $aColumns[$i] != ' ' )
 			{
 				/* General output */

@@ -81,14 +81,27 @@ if (!isset($_SESSION['AUTH']))
     
     ini_set('display_errors',1);
     error_reporting(E_ALL);
+
+        if(isset($_POST['back']))
+    {
+        if($_SESSION['UTYPE']=="1"){
+            header("Location: splashPublic.php");
+        }elseif($_SESSION['UTYPE']=="2" || $_SESSION['UTYPE']=="3" ){
+            header("Location: splashPublic.php");
+        }
+        else{
+            header("Location: splash.php");
+        }
+    }
+    
     
     $sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
     mysqli_select_db($sql, "paterson");
     
     if(isset($_GET['property_id'])){
-        $_SESSION['PROPID']=$_GET['property_id'];
+        $_SESSION['PROPID']=(int)$_GET['property_id'];
     }
-    $PROPID = $_SESSION['PROPID'];
+    $PROPID = (int)$_SESSION['PROPID'];
    
 
                 
@@ -112,6 +125,13 @@ if(isset($_POST['writeRecord'])) {
     $SPOST = $_POST["inputSign"];
     $PDESC = $_POST["inputDescription"];
     $LCOMMENT = $_POST["inputComments"];
+    if($_SESSION['UTYPE']=='2' || $_SESSION['UTYPE']=='3'){
+        $OWNERID=$_POST["OWNERID"];
+        $PAMSPIN=$_POST["PAMSPIN"];
+        $AGENTID=$_POST["AGENTID"];
+        $VDATE=$_POST["VDATE"];
+        $VERIFIED=$_POST["VERIFIED"];
+    }
     $CHECKPASS=true;
     $status="";
         
@@ -139,7 +159,16 @@ if(isset($_POST['writeRecord'])) {
             $CHECKPASS = false;
         }
 
-        
+        if( empty($_POST['VDATE']) || $VDATE=="0000-00-00" || checkdate( intval(substr($VDATE,6,2)) , intval(substr($VDATE, 8, 2 )) , intval(substr($VDATE, 1,4 ) )))
+        {
+            // if the checks are ok for the email we assign the email address to a variable
+        }
+        else
+        {
+            $status = 'Invalid Date of vacant date Supplied';
+            $CHECKPASS = false;
+        }
+
         if ($CHECKPASS)
         {
             
@@ -155,24 +184,43 @@ if(isset($_POST['writeRecord'])) {
             }
             else 
             {
-                
+             
+                if($_SESSION['UTYPE']=="1"){
+                    $check="UPDATE `PROPERTY` 
+                    SET BLOCK = '$BLOCK', LOT = '$LOT', WARD = '$WARD', ADDRNUM = '$ADDRNUM', STREET = '$STREET', ZIP = '$ZIP', 
+                    BOARDED = '$BOARDED', SPOST = '$SPOST', PDESC = '$PDESC', LCOMMENT = '$LCOMMENT' WHERE PROPID = '$PROPID'";
 
-            $check="UPDATE `PROPERTY` 
-                SET BLOCK = '$BLOCK', LOT = '$LOT', WARD = '$WARD', ADDRNUM = '$ADDRNUM', STREET = '$STREET', ZIP = '$ZIP', 
-                BOARDED = '$BOARDED', SPOST = '$SPOST', PDESC = '$PDESC', LCOMMENT = '$LCOMMENT' WHERE PROPID = '$PROPID'";
+                    mysqli_query($sql, $check);
+                    if (!mysqli_query($sql,$check))
+                     {
+                      die('Error: ' . mysqli_error($sql));
+                    }
+                    else{
+                        print '<script type="text/javascript">'; 
+                        print 'alert("Changes saved")'; 
+                        print '</script>'; 
+                        
+                    }
+                }
+                elseif($_SESSION['UTYPE']=="2" || $_SESSION['UTYPE']=="3"){
+                    $check="UPDATE `PROPERTY` 
+                    SET BLOCK = '$BLOCK', LOT = '$LOT', WARD = '$WARD', ADDRNUM = '$ADDRNUM', STREET = '$STREET', ZIP = '$ZIP', 
+                    BOARDED = '$BOARDED', SPOST = '$SPOST', PDESC = '$PDESC', LCOMMENT = '$LCOMMENT', OWNERID='$OWNERID', 
+                            PAMSPIN='$PAMSPIN', AGENTID='$AGENTID', VDATE='$VDATE', VERIFIED='$VERIFIED' WHERE PROPID = '$PROPID'";
 
-                mysqli_query($sql, $check);
-                if (!mysqli_query($sql,$check))
-                 {
-                  die('Error: ' . mysqli_error($sql));
+                    mysqli_query($sql, $check);
+                    if (!mysqli_query($sql,$check))
+                     {
+                      die('Error: ' . mysqli_error($sql));
+                    }
+                    else{
+                        print '<script type="text/javascript">'; 
+                        print 'alert("Changes saved")'; 
+                        print '</script>'; 
+                        
+                    }
                 }
-                else{
-                    print '<script type="text/javascript">'; 
-                    print 'alert("Changes saved")'; 
-                    print '</script>'; 
-                     
-                }
-        }
+            }
         
             if ( $status == "")
             {
@@ -212,9 +260,13 @@ if(isset($_POST['writeRecord'])) {
                     $PDESC=$row["PDESC"];
                     $LCOMMENT=$row["LCOMMENT"];
                     $rowtot++;
-                    //$FNameErr="";
-                    //$EmailErr="";
-                    //$DOBErr="";
+                    if($_SESSION['UTYPE']=='2' || $_SESSION['UTYPE']=='3'){
+                        $OWNERID=$row["OWNERID"];
+                        $PAMSPIN=$row["PAMSPIN"];
+                        $AGENTID=$row["AGENTID"];
+                        $VDATE=$row["VDATE"];
+                        $VERIFIED=$row["VERIFIED"];
+                    }
                     $status="Please fill out as much information as possible.";
                 }
                 if ( $rowtot == 0){
@@ -224,6 +276,30 @@ if(isset($_POST['writeRecord'])) {
             }
         
     }
+	$BOARDSEL = "<select class='form-control' name='inputBoarded'><option value='1' ";
+	if ( $BOARDED == 1)
+	{
+		$BOARDSEL .= " selected";
+	}
+	$BOARDSEL .= ">Yes</option>";
+	$BOARDSEL .= "<option value='2' ";
+	if ( $BOARDED == 2)
+	{
+		$BOARDSEL .= " selected";
+	}
+	$BOARDSEL .= ">No</option></select>";
+	$SIGNSEL = "<select class='form-control' name='inputSign'><option value='1' ";
+	if ( $SPOST == 1)
+	{
+		$SIGNSEL .= " selected";
+	}
+	$SIGNSEL .= ">Yes</option>";
+	$SIGNSEL .= "<option value='2' ";
+	if ( $SPOST == 2)
+	{
+		$SIGNSEL .= " selected";
+	}
+	$SIGNSEL .= ">No</option></select>";
 ?>
 
 <link type="text/css" href="css/jquery.datepick.css" rel="stylesheet">
@@ -232,6 +308,18 @@ if(isset($_POST['writeRecord'])) {
 <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/datepick/jquery.datepick.js"></script>
 
+<script type="text/javascript">
+	jQuery(function($){
+	   $("#VDATE").mask("9999-99-99");
+	});
+</script>
+
+<script type="text/javascript">
+$(function() {
+	$('#VDATE').datepick({dateFormat: 'yyyy-mm-dd'});
+});
+</script>
+
  <div class="container-fluid">
     <div class="row">
         <br>
@@ -239,7 +327,8 @@ if(isset($_POST['writeRecord'])) {
     </div>  
 
   <div class="row">
-    
+  
+  
 <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method="post" class="form-horizontal" role="form" >
   <input type="hidden" name="property_id" value="<?=$property_id ?> ">
     <div class="col-xs-6 col-xs-offset-3">
@@ -288,36 +377,159 @@ if(isset($_POST['writeRecord'])) {
 
         <div class="form-group">
             <label for="inputBoarded" class="col-xs-3 control-label">Boarded</label>
-            <div class="col-xs-3">
-                <input  class="form-control" id="inputBoarded" name="inputBoarded"  pattern="^[yYnN]{1}$" maxlength="1" value="<?=$BOARDED;?>">
+            <div class="col-xs-2">
+				<?=$BOARDSEL;?>
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputSign" class="col-xs-3 control-label">Sign</label>
-            <div class="col-xs-3">
-                <input  class="form-control" id="inputSign" name="inputSign" pattern="^[yYnN]{1}$" maxlength="1" value="<?=$SPOST;?>">
+            <div class="col-xs-2">
+                <?=$SIGNSEL;?>
             </div>
         </div>
         
         <div class="form-group">
             <label for="inputDescription" class="col-sm-3 control-label">Property Description</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputDescription" name="inputDescription" value="<?=$PDESC;?>">
+                <textarea rows='7' cols='60' class='form-control' id='inputDescription' name='inputDescription'><?php echo "$PDESC" ?></textarea>
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputComments" class="col-sm-3 control-label">Comments</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputComments" name="inputComments" value="<?=$LCOMMENT;?>">
+				<textarea rows='7' cols='60' class='form-control' id='inputComments' name='inputComments'><?php echo "$LCOMMENT" ?></textarea>				
             </div>
         </div>
                       
-    </div>
-   
     
-    <tr><td><input type='submit' name='save' value='Save' class='button'>
+
+
+   <!--user type 2 or 3-->
+   <?php if($_SESSION['UTYPE']=='2' || $_SESSION['UTYPE']=='3') :
+   
+   $query=mysqli_query($sql, "
+		SELECT * 
+		FROM OWNERS
+		ORDER BY `OWNERS`.`FNAME` ASC 
+	");
+	$rowtot = 0;
+	$OWNERSEL = "<select class='form-control' name='OWNERID'>";
+	while($row=mysqli_fetch_assoc($query)){
+		$result[]=$row;
+		$rowtot++;
+	}
+	if ( $rowtot > 0)
+	{
+		foreach($result as $key=>$value){
+			$OWNERSEL .= "<option value='";
+			$OWNERSEL .= $value["OWNERID"];
+			$OWNERSEL .= "'";
+			if ( $OWNERID == $value["OWNERID"])
+			{
+				$OWNERSEL .= " selected";
+			}
+			
+			$OWNERSEL .= ">";
+			$OWNERSEL .= $value["FNAME"];
+			$OWNERSEL .= " ";
+			$OWNERSEL .= $value["LNAME"];
+			$OWNERSEL .= "</option>";
+		}
+		$OWNERSEL .= "</select>";
+	}
+	$rowtot = 0;
+	unset($result);
+	unset($query);
+	
+	$query=mysqli_query($sql, "
+		SELECT * 
+		FROM OWNERS
+		ORDER BY `OWNERS`.`FNAME` ASC 
+	");
+	$rowtot = 0;
+	$AGENTSEL = "<select class='form-control' name='AGENTID'>";
+	while($row=mysqli_fetch_assoc($query)){
+		$result[]=$row;
+		$rowtot++;
+	}
+	if ( $rowtot > 0)
+	{
+		foreach($result as $key=>$value){
+			$AGENTSEL .= "<option value='";
+			$AGENTSEL .= $value["OWNERID"];
+			$AGENTSEL .= "'";
+			if ( $AGENTID == $value["OWNERID"])
+			{
+				$AGENTSEL .= " selected";
+			}
+			
+			$AGENTSEL .= ">";
+			$AGENTSEL .= $value["FNAME"];
+			$AGENTSEL .= " ";
+			$AGENTSEL .= $value["LNAME"];
+			$AGENTSEL .= "</option>";
+		}
+		$AGENTSEL .= "</select>";
+	}
+	
+	$VALSEL = "<select class='form-control' name='VERIFIED'><option value='0' ";
+	if ( $VERIFIED == 0)
+	{
+		$VALSEL .= " selected";
+	}
+	$VALSEL .= ">Not Validated</option>";
+	$VALSEL .= "<option value='1' ";
+	if ( $VERIFIED == 1)
+	{
+		$VALSEL .= " selected";
+	}
+	$VALSEL .= ">Validated</option></select>";
+   
+   ?>
+        <div class="form-group">
+            <label for="OWNERID" class="col-sm-3 control-label">Ownerid</label>
+            <div class="col-sm-9">
+              <?=$OWNERSEL;?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="PAMSPIN" class="col-sm-3 control-label">PAMSPIN</label>
+            <div class="col-sm-9">
+                <input  class="form-control" id="PAMSPIN" name="PAMSPIN" type="number" value="<?=$PAMSPIN;?>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="AGENTID" class="col-sm-3 control-label">AgentID</label>
+            <div class="col-sm-9">
+                <?=$AGENTSEL;?>
+            </div>
+        </div>
+              
+        <div class="form-group">
+            <label for="VDATE" class="col-sm-3 control-label">Vacant Date</label>
+            <div class="col-sm-3">
+                <input class="form-control" type='text' id="VDATE" name="VDATE" value="<?=$VDATE;?>">
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="inputStreet" class="col-sm-3 control-label">Verified</label>
+            <div class="col-sm-3">
+             <?=$VALSEL;?>
+            </div>
+        </div>
+                        
+        <?php endif; ?>
+    </div>
+       
+
+    <div><a class="btn btn-default" href="<?php echo( "imgEdit.php?property_id=".$_SESSION['PROPID']) ?>">Edit Images</a></div>
+    
+    <tr><td><input type='submit' name='save' value='Save' class='btn btn-default'>
 
             <input type='hidden' name='writeRecord' value='1'>
     </tr>

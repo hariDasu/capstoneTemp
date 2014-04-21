@@ -149,6 +149,7 @@ ini_set('display_errors',1);
                                               <tr>
                                                     <th width="4%">
                                                         Edit
+                                                        Delete
                                                     </th>
                                                   <th width="9%">
                                                       Block
@@ -219,55 +220,66 @@ ini_set('display_errors',1);
                                                 print("&nbsp;");
                                             
                                                 echo '<tr>';
-                                                print("<td><a href='editEntry.php?property_id=".$value["PROPID"]."'>Edit</a>");
+                                                print("<td><a href='editEntry.php?property_id=".$value["PROPID"]."'>Edit </a>");
+                                                print ("<a href='deleteproperty.php?id=".$value["PROPID"]."' onclick=\"return confirm('Remove ".$value["PROPID"]."?');\"> Delete</a></td>");
+                                                echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>';
+                        												if ( $value["BOARDED"] == 1)
+                        												{
+                        													echo '<td>Y</td>'; 
+                        												}
+                        												else 
+                        												{
+                        													echo '<td>N</td>'; 
+                        												}
+                        												if ( $value["SPOST"] == 1)
+                        												{
+                        													echo '<td>Y</td>'; 
+                        												}
+                        												else 
+                        												{
+                        													echo '<td>N</td>'; 
+                        												}
+                                                echo '<td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
+                                                        //-***********image processing includes modal***************************
+                                                  if(!empty($value["PHOTOLOC"]) ){ 
+                                                      $string =array();
+                                                      $filePath=$value["PHOTOLOC"];  
+                                                      $dir = opendir($filePath);
+                                                      while ($file = readdir($dir)) { 
+                                                         if (preg_match("/.png/",$file) || preg_match("/.jpg/",$file) || preg_match("/.gif/",$file) || preg_match("/.bmp/",$file) || preg_match("/.jpeg/",$file)) { 
+                                                              $string[] = $file;
+                                                         }
+                                                      }
+                                                      while (sizeof($string) != 0){
+                                                        $img = array_pop($string);
 
-                                                echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>  <td>', $value["BOARDED"];
-                                                echo '</td><td>',$value["SPOST"],' </td>  <td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
-                                                    if(!empty($value["PHOTOLOC"]) ){ 
-                                                        //************testing*****************
-                                                      
-                                                        $string =array();
-                                                        $filePath=$value["PHOTOLOC"];  
-                                                        $dir = opendir($filePath);
-                                                        while ($file = readdir($dir)) { 
-                                                           if (preg_match("/.png/",$file) || preg_match("/.jpg/",$file) || preg_match("/.gif/",$file) || preg_match("/.bmp/",$file) || preg_match("/.jpeg/",$file)) { 
-                                                                $string[] = $file;
-                                                           }
-                                                        }
-                                                        while (sizeof($string) != 0){
-                                                          $img = array_pop($string);
-
-                                                        ?> 
-                                                            <html>
-                                                            <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Image</button>
+                                                      ?> 
+                                                      <html>
+                                                          <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                              <div class="modal-dialog">
+                                                                  <div class="modal-content">
+                                                                      <div class="modal-header">
+                                                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Image</button>
+                                                                      </div>
+                                                                      <div class="modal-body">
+                                                                          <p><img src="<?php echo $filePath.$img; ?>"  width="400" height="200"></p>
+                                                                      </div>
+                                                                      <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                                                                      </div>
+                                                                  </div>
                                                                         
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p><img src="<?php echo $filePath.$img; ?>"  width="400" height="200"></p>
-                                                                            
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                           
-                                                                    </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            
-                                                               
-                                                               
-                                                              <td><a data-toggle="modal" href="#imgModal"><img src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a></td>
-                                                            </html>
-                                                        <?php
-                                                        }
-                                                        
-                                                    }    
-                                                    else{
-                                                       echo '<td></td>';
+                                                              <td><a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a></td>
+                                                              
+                                                          </div> 
+                                                      </html>
+                                                      <?php
+                                                      }
+                                                      
+                                                  }//***********************end image processing******************    
+                                                  else{
+                                                    
+                                                    
                                                     }
                                                 echo '<tr>';   
                                             }
