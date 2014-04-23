@@ -85,6 +85,7 @@ ini_set('display_errors',1);
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
+                            </div>
                     </form>
                     ");
                     
