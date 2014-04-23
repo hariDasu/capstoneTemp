@@ -172,9 +172,10 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                         <div class='form-group'>
                             &nbsp;
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
-                            <br><br><br>
+
                         </div>
                     </form>
+                    <br><br><br>
                     ");
             }
             
