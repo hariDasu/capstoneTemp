@@ -6,18 +6,27 @@ if (!isset($_SESSION['AUTH']))
     session_destroy();
     header('Location: signIn.html');
 }
-
+function clean_data($input) {
+    $input = trim(htmlentities(strip_tags($input,",")));
+ 
+    if (get_magic_quotes_gpc())
+        $input = stripslashes($input);
+ 
+    $input = mysql_real_escape_string($input);
+ 
+    return $input;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $BLOCK = $_POST["inputBlock"];
-      $LOT = $_POST["inputLot"];
-      $WARD = $_POST["inputWard"];
-      $ADDRNUM = $_POST["AddrNum"];
-	    $STREET = $_POST["inputStreet"];
-      $ZIP = $_POST["inputZip"];
-      $BOARDED= $_POST["inputBoarded"];
-      $SPOST = $_POST["inputSign"];
-      $PDESC = $_POST["inputDescription"];
-      $LCOMMENT = $_POST["inputComments"];
+      $BLOCK = clean_data($_POST["inputBlock"]);
+      $LOT = clean_data($_POST["inputLot"]);
+      $WARD = clean_data($_POST["inputWard"]);
+      $ADDRNUM = clean_data($_POST["AddrNum"]);
+      $STREET = clean_data($_POST["inputStreet"]);
+      $ZIP = clean_data($_POST["inputZip"]);
+      $BOARDED= clean_data($_POST["inputBoarded"]);
+      $SPOST = clean_data($_POST["inputSign"]);
+      $PDESC = clean_data($_POST["inputDescription"]);
+      $LCOMMENT = clean_data($_POST["inputComments"]);
 
 
       //goes to edit page and keeps the back button from resubmitting
