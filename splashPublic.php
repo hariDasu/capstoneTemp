@@ -226,7 +226,10 @@ ini_set('display_errors',1);
                         												}
                                                 echo '<td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
                                                         //-***********image processing includes modal***************************
-                                                  if(!empty($value["PHOTOLOC"]) && is_dir($value["PHOTOLOC"])){ 
+
+                                                  $dir = "$value["PHOTOLOC"]";
+                                                  if(!empty($value["PHOTOLOC"]) && is_dir($value["PHOTOLOC"])&& if(!file_exists(glob($dir."$value["PHOTOLOC"]")))){
+
                                                       $string =array();
                                                       $filePath=$value["PHOTOLOC"];  
                                                       $dir = opendir($filePath);
