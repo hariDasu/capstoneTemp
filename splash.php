@@ -138,6 +138,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
 
             <div class='panel-heading'><h2><b>Properties</b></h2>
+
 <form class='navbar-form navbar-left' role='form'>
         <div class="btn-group">
         
@@ -185,7 +186,6 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
 
   <!-- Table -->
-
 
 
             <br><br>

@@ -62,7 +62,7 @@ ini_set('display_errors',1);
       </div>
     </div>
     <div class='panel-heading'><h2><b>Properties you have entered</b></h2>
-        <form class='navbar-form navbar-left' role='form'>
+        <form class='navbar-form navbar' role='form'>
         <div class="btn-group">
         
             
@@ -73,7 +73,7 @@ ini_set('display_errors',1);
                 <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
             
         <?php 
-        if ($_SESSION['UTYPE'] > 1)
+        if ($_SESSION['UTYPE'] == 2)
             {
                 print("
                     
@@ -87,25 +87,32 @@ ini_set('display_errors',1);
                     
                 
             }
-            if ($_SESSION['UTYPE'] == 3)
+          elseif ($_SESSION['UTYPE'] == 3)
             {
                 print("
-                    <form class='navbar-form navbar-left' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
+
+                    
+                            <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
+                            <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
+                            <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
+                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
 
                         </div>
                     </form>
-                    <br><br><br><br>
                     ");
             }
-            
+            else{
+              print("
+                </form>
+                </div>  
+                ");
+            }  
             
         ?>
     </div>
   
-    <br><br><br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -272,6 +279,9 @@ ini_set('display_errors',1);
                                                       <?php
                                                       $imgCntr++;
                                                       }
+													  if ($imgCntr == 0 ) {
+                                                                       echo '<td> </td>' ;
+                                                                   }
                                                       
                                                   }//***********************end image processing******************    
                                                   else{
