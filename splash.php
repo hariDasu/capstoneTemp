@@ -160,7 +160,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
-                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
+                            </div>
                     </form>
                     ");
                     
@@ -173,6 +173,13 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                         <div class='form-group'>
                             &nbsp;
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
+                        </div>
+                    </form>
+
+                    <form class='navbar-form navbar-right' role='form'>
+                        <div class='form-group'>
+                            &nbsp;
+                            <a class='btn btn-success' href='editCAction.php?courtid=new'>New Court Action</a>
                         </div>
                     </form>
                     ");
