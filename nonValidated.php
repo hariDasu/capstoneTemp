@@ -227,7 +227,7 @@ ini_set('display_errors',1);
                         												}
                                                 echo '<td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
                                                         //-***********image processing includes modal***************************
-                                                  if(!empty($value["PHOTOLOC"]) ){ 
+                                                  if(!empty($value["PHOTOLOC"])&& is_dir($value["PHOTOLOC"]) ){ 
                                                       $string =array();
                                                       $filePath=$value["PHOTOLOC"];  
                                                       $dir = opendir($filePath);
@@ -236,6 +236,8 @@ ini_set('display_errors',1);
                                                               $string[] = $file;
                                                          }
                                                       }
+                                                      $imgCntr=0 ;
+                                                      $imgCnt=count($string) ;
                                                       while (sizeof($string) != 0){
                                                         $img = array_pop($string);
 
@@ -254,12 +256,19 @@ ini_set('display_errors',1);
                                                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                                                                       </div>
                                                                   </div>
-                                                                        
-                                                              <td><a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a></td>
+                                                                 <?php
+                                                                   if ($imgCntr == 0 ) {
+                                                                       echo '<td>' ;
+                                                                   }
+                                                              ?>       
+                                                              
                                                               
                                                           </div> 
+
+                                                          <a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a>
                                                       </html>
                                                       <?php
+                                                      $imgCntr++;
                                                       }
                                                       
                                                   }//***********************end image processing******************    
@@ -272,6 +281,7 @@ ini_set('display_errors',1);
                                         }
                                 }
                         ?>
+                        </tbody>
 </table>
             </div>
         </div>
