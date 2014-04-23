@@ -7,7 +7,10 @@ if (!isset($_SESSION['AUTH']))
     session_destroy();
     header('Location: signIn.html');
 }
-
+if ($_SESSION['UTYPE'] == '1')
+{
+    header('Location: denied.php');
+}
 ini_set('display_errors',1);
         error_reporting(E_ALL);
 
@@ -61,11 +64,11 @@ ini_set('display_errors',1);
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-    <div class='panel-heading'><h2><b>Properties you have entered</b></h2>
+    <div class='panel-heading'><h2><b>Notices</b></h2>
         <form class='navbar-form navbar-left' role='form'>
         <div class="btn-group">
         
-            
+                <a class="btn btn-default" href="splashPublic.php">My Entries</a>
                 <a class="btn btn-default" href="splash.php">Main List</a>
                  
                 <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
@@ -109,7 +112,31 @@ ini_set('display_errors',1);
         <div class="row">
             <div class="col-md-12">
             	<a class="btn btn-success" href='editNotice.php?noticeid=new'>New Notice</a>
+				<br>
             	<table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
+				<thead>
+					  <tr>
+							<th width="4%">
+								Edit
+								Delete
+							</th>
+						  <th width="9%">
+							  Owner First Name
+						  </th>
+					  
+						  <th width="9%">
+							  Notice Type
+						  </th>
+						  
+						  <th width="9%">
+							  Notice Date
+						  </th>
+						  <th width="9%">
+							  Notes
+						  </th>
+				  
+					</tr>
+				  </thead>
 <?php
 		//header("Content-Type: text/html");
 
@@ -209,13 +236,7 @@ ini_set('display_errors',1);
 
                 });
             $('#prettyTable').dataTable(
-                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-                        "iDisplayLength" : 5,
-                        "aoColumns": [null,
-                                      {"mData":null,
-                                        "sDefaultContent": "Edit"
-                                      }
-                                    ]
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
                         });  
         })</script>
 

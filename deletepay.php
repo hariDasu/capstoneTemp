@@ -1,5 +1,8 @@
 <?php
-
+	if ($_SESSION['UTYPE'] == '1')
+	{
+		header('Location: denied.php');
+	}
 	$sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
 	mysqli_select_db($sql, "paterson");
 	

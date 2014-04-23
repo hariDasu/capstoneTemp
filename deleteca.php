@@ -2,7 +2,10 @@
 
 	$sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
 	mysqli_select_db($sql, "paterson");
-	
+	if ($_SESSION['UTYPE'] == '1')
+	{
+		header('Location: denied.php');
+	}
 	if (isset($_GET['id']) && is_numeric($_GET['id']) )
 	{
 		// get id value

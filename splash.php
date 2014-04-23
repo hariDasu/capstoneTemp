@@ -1,4 +1,7 @@
 <?php
+/*
+  vi: sw=4 ts=4 expandtab
+*/
 session_start();
 
 //validate session
@@ -36,6 +39,8 @@ $email = $_SESSION['EMAIL'];
 <link href='css/bootstrap.min.css' rel='stylesheet'>
 <link href='css/bootstrap-switch.css' rel='stylesheet'>
 <link href='css/dataTables.bootstrap.css' rel='stylesheet'>
+<link href='css/dataTables.editor.css' rel='stylesheet'>
+<link href='css/dataTables.tabletools.css' rel='stylesheet'>
 
 
 
@@ -133,15 +138,47 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
 
             <div class='panel-heading'><h2><b>Properties</b></h2>
-            <div class="row">                
-            <a class="btn btn-default" href="splashPublic.php">My Entries</a>
-            <form class='navbar-form navbar-right' role='form'>
-            <div class='form-group'>
-              &nbsp;
-            <a class="btn btn-success" href="addPublicEntry.php">Add Entry to List</a>
+<form class='navbar-form navbar-left' role='form'>
+        <div class="btn-group">
+        
+            
+                <a class="btn btn-default" href="splashPublic.php">My Entries</a>
+                 
+                <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
+     
+                <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
+            
+        
             </div>
-                </form>
-            </div>
+        </form>
+        <?php 
+            if ($_SESSION['UTYPE'] == 3)
+            {
+                print("
+                    <form class='navbar-form navbar-right' role='form'>
+                        <div class='form-group'>
+                            &nbsp;
+                            <a class='btn btn-success' href='listUsers.php'>User Administration</a>
+                        </div>
+                    </form>
+                    ");
+            }
+            if ($_SESSION['UTYPE'] > 1)
+            {
+                print("
+                    <form class='navbar-form navbar-right' role='form'>
+                        <div class='btn-group'>
+                            <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
+                            <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
+                            <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
+                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
+                    </form>
+                    ");
+                    
+                
+            }
+            
+        ?>
             </div>
 
 
@@ -150,12 +187,52 @@ echo "$username"; ?></b>&nbsp;&nbsp;
 
 
             <br><br>
+<?php
+                            //header("Content-Type: text/html");
 
+                            ini_set('display_errors',1);
+                            error_reporting(E_ALL);
+
+                            
+
+                            //project db
+                            $sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
+                           
+                            if(mysqli_connect_errno($sql))
+                            {
+                                print("<tr>
+                                            <td>Failed to connect to MySQL: " . mysqli_connect_error() . ";</td>
+                                            
+                                        </tr>");
+                            }
+                            else
+                            {
+                            
+                               // find all entries for user
+                                $query=mysqli_query($sql, "SELECT * FROM PROPERTY
+                                ");
+                                $rowtot = 0;
+                                while($row=mysqli_fetch_assoc($query)){
+                                    $result[]=$row;
+                                    $rowtot++;
+                                }
+
+                                if ( $rowtot > 0)
+                                { 
+                                    ?>
             <table  cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
                           
                                           <thead>
                                               <tr>
-                                                    
+                                                <?php  
+                                                    if ($_SESSION['UTYPE'] > 1) {
+                                                ?>
+                                                        <th width="4%">
+                                                           Edit/Delete
+                                                        </th>
+                                                <?php
+                                                    }
+                                                ?>
                                                   <th width="9%">
                                                       Block
                                                   </th>
@@ -199,7 +276,93 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                                           
                                             </tr>
                                           </thead>
-
+        <tbody>
+<?php
+                                        // echo '<tr>';
+                                        $rowCnt=0 ;
+                                        foreach($result as $key=>$value){
+                                                $rowCnt++ ;
+                                                $property_id = $value["PROPID"];
+                                                print("&nbsp;");
+                                                echo '<tr>';
+                                            if ($_SESSION['UTYPE'] > 1){
+                                                print("<td><a href='editEntry.php?property_id=".$value["PROPID"]."'>Edit </a>");
+                                                print ("<a href='deleteproperty.php?id=".$value["PROPID"]."' onclick=\"return confirm('Remove ".$value["PROPID"]."?');\"> Delete</a></td>");
+}                                               
+ echo  '<td>',$value["BLOCK"],' </td>  <td>', $value["LOT"],'</td><td>',$value["WARD"],' </td>  <td>', $value["ADDRNUM"],'</td> <td>',$value["STREET"],'</td> <td>',$value["ZIP"],' </td>';
+                                                                        if ( $value["BOARDED"] == 1)
+                                                                        {
+                                                                            echo '<td>Y</td>'; 
+                                                                        }
+                                                                        else 
+                                                                        {
+                                                                            echo '<td>N</td>'; 
+                                                                        }
+                                                                        if ( $value["SPOST"] == 1)
+                                                                        {
+                                                                            echo '<td>Y</td>'; 
+                                                                        }
+                                                                        else 
+                                                                        {
+                                                                            echo '<td>N</td>'; 
+                                                                        }
+                                                echo '<td>', $value["PDESC"],'</td>  <td>', $value["LCOMMENT"],'</td>';
+                                                        //-***********image processing includes modal***************************
+                                                  if(!empty($value["PHOTOLOC"]) && is_dir($value["PHOTOLOC"])){ 
+                                                      $string =array();
+                                                      $filePath=$value["PHOTOLOC"];  
+                                                      $dir = opendir($filePath);
+                                                      while ($file = readdir($dir)) { 
+                                                         if (preg_match("/.png/",$file) || preg_match("/.jpg/",$file) || preg_match("/.gif/",$file) || preg_match("/.bmp/",$file) || preg_match("/.jpeg/",$file)) { 
+                                                              $string[] = $file;
+                                                         }
+                                                      }
+                                                      $imgCntr=0 ;
+                                                      $imgCnt=count($string) ;
+                                                      while (sizeof($string) != 0){
+                                                        $img = array_pop($string);
+                                                      ?> 
+                                                      <html>
+                                                          <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                              <div class="modal-dialog">
+                                                                  <div class="modal-content">
+                                                                      <div class="modal-header">
+                                                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Image</button>
+                                                                      </div>
+                                                                      <div class="modal-body">
+                                                                          <p><img src="<?php echo $filePath.$img; ?>"  width="400" height="200"></p>
+                                                                      </div>
+                                                                      <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                                        
+                                                              <?php
+                                                                   if ($imgCntr == 0 ) {
+                                                                       echo '<td>' ;
+                                                                   }
+                                                              ?>
+                                                              
+                                                          </div> 
+                                                          <a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a> 
+                                                      </html>
+                                                      <?php
+                                                        $imgCntr++;
+                                                      }
+                                                      
+                                                  }//***********************end image processing******************    
+                                                  else{
+														echo "<td> ";
+                                                    
+                                                    }
+                                                //echo '<tr>';   
+                                            }
+                                        }
+                                }
+                            
+                        ?>
+        </tbody>
             </table>
 
             </div>
@@ -219,7 +382,11 @@ echo "$username"; ?></b>&nbsp;&nbsp;
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
+<script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>  
 
 <script>
     $( document ).ready(function() {
@@ -227,21 +394,25 @@ echo "$username"; ?></b>&nbsp;&nbsp;
             console.log($(this));
             return false;
         });
-        $('#prettyTable').dataTable({
-            "aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-            "iDisplayLength" : 10,
-            "bProcessing": true,
-            "bServerSide": true,
-            "sAjaxSource": "properties1.php"
-        });
-
-
-    });
-
-
-
+            });
 </script>
+    <script>
+      $(document).ready(function(){
+           $('img').on('click',function(){
+                var src = $(this).attr('src');
+                var img = '<img src="' + src + '" class="img-responsive"/>';
+                $('#imgModal').modal();
+                $('#imgModal').on('shown.bs.modal', function(){
+                    $('#imgModal .modal-body').html(img);
+                });
+                $('#mimgModal').on('hidden.bs.modal', function(){
+                    $('#imgModal .modal-body').html('');
+                });
 
+                });
+            // {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]] }
+            $('#prettyTable').dataTable();  
+        })</script>
   </body>
 </html>
 

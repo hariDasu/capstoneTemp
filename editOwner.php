@@ -6,6 +6,10 @@
 		session_destroy();
 		header('Location: signIn.html');
 	}
+	if ($_SESSION['UTYPE'] == '1')
+	{
+		header('Location: denied.php');
+	}
 	 /**
 	  * This function can be used to check the sanity of variables
 	  *

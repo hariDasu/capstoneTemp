@@ -7,14 +7,12 @@ if (!isset($_SESSION['AUTH']))
     session_destroy();
     header('Location: signIn.html');
 }
-if ($_SESSION['UTYPE'] == '1')
-{
-    header('Location: denied.php');
-}
+
 ini_set('display_errors',1);
         error_reporting(E_ALL);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +40,7 @@ ini_set('display_errors',1);
       <div class="container">
         <div class="navbar-header">
           
-          <a class="navbar-brand" href="index.html">Spot The Lot - City of Paterson: User Dashboard</a>
+          <a class="navbar-brand" href="index.html">Spot The Lot - City of Paterson: Access Denied</a>
         </div>
           
         <div class="navbar-collapse pull-right">
@@ -64,12 +62,12 @@ ini_set('display_errors',1);
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-    <div class='panel-heading'><h2><b>Owners</b></h2>
+    <div class='panel-heading'><h2><b>Access Denied</b></h2>
         <form class='navbar-form navbar-left' role='form'>
         <div class="btn-group">
         
-            
-                <a class="btn btn-default" href="splashPublic.php">My Entries</a>
+				<a class="btn btn-default" href="splashPublic.php">My Entries</a>
+			
                 <a class="btn btn-default" href="splash.php">Main List</a>
                  
                 <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
@@ -99,6 +97,7 @@ ini_set('display_errors',1);
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
+                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
                     ");
                     
@@ -106,88 +105,9 @@ ini_set('display_errors',1);
             }
             
         ?>
+		<br>
     </div>
-  
-    <br><br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-            	<a class="btn btn-success" href='editOwner.php?ownerid=new'>New Owner</a>
-				<br>
-            	<table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
-				<thead>
-					  <tr>
-							<th width="4%">
-								Edit
-								Delete
-							</th>				
-					  
-						  <th width="9%">
-							  Owner First Name
-						  </th>
-					  
-						  <th width="9%">
-							  Owner Last Name
-						  </th>
-				  
-					</tr>
-				  </thead>
-<?php
-		//header("Content-Type: text/html");
-
-		ini_set('display_errors',1);
-		error_reporting(E_ALL);
-
-		//session_start();
-		
-		$sql=mysqli_connect("web178.webfaction.com","pytools","patersonDB","paterson");
-		
-		
-		if(mysqli_connect_errno($sql))
-		{
-			print("<tr>
-						<td>Failed to connect to MySQL: " . mysqli_connect_error() . ";</td>
-						
-					</tr>");
-		}
-		else
-		{
-			
-			$query=mysqli_query($sql, "
-				SELECT * 
-				FROM OWNERS
-				ORDER BY `OWNERS`.`FNAME` ASC 
-			");
-			$rowtot = 0;
-			while($row=mysqli_fetch_assoc($query)){
-				$result[]=$row;
-				$rowtot++;
-			}
-			if ( $rowtot > 0)
-			{
-				foreach($result as $key=>$value){
-				print("&nbsp;");
-						print("<tr>
-						<td><a href='editOwner.php?ownerid=".$value["OWNERID"]."'>Edit</a>
-						<a href='deleteown.php?id=".$value["OWNERID"]."' onclick=\"return confirm('Remove ".$value["FNAME"]."?');\">Delete</a></td>
-						<td>".$value["FNAME"]." </td>  <td> ".$value["LNAME"]."</td></tr>");			
-				}
-			}
-			else
-			{
-				print("<tr>
-						<td> No Owners on File - Click Add Owner to continue</td>
-						</tr>");
-			}
-		}
-	?>
-</table>
-                    
-            </div>
-        </div>
-    </div>
-
-</body>
+	</body>
 
 <hr>
  <footer>
@@ -219,7 +139,13 @@ ini_set('display_errors',1);
 
                 });
             $('#prettyTable').dataTable(
-                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+                        "iDisplayLength" : 5
+                       // "aoColumns": [null,
+                         //             {"mData":null,
+                        //                "sDefaultContent": "Edit"
+                           //           }
+                             //       ]
                         });  
         })</script>
 
@@ -241,7 +167,3 @@ ini_set('display_errors',1);
     
   </body>
 </html>
-
-
-
-

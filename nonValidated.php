@@ -61,12 +61,13 @@ ini_set('display_errors',1);
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-    <div class='panel-heading'><h2><b>Properties you have entered</b></h2>
+    <div class='panel-heading'><h2><b>Unverified Property Listings</b></h2>
         <form class='navbar-form navbar-left' role='form'>
         <div class="btn-group">
         
             
                 <a class="btn btn-default" href="splash.php">Main List</a>
+                <a class="btn btn-default" href="splashPublic.php">My Entries</a>
                  
                 <a class="btn btn-default" href="addPublicEntry.php">Add Property</a>
      
@@ -95,7 +96,6 @@ ini_set('display_errors',1);
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
-                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
                     ");
                     
@@ -132,8 +132,7 @@ ini_set('display_errors',1);
                             
                                // find all entries for user
                                 $query=mysqli_query($sql, "SELECT * 
-                                    FROM PROPERTY WHERE LUSERID='$_SESSION[USERID]'
-                                    ORDER BY `STREET` ASC 
+                                    FROM PROPERTY WHERE VERIFIED=0
                                 ");
                                 $rowtot = 0;
                                 while($row=mysqli_fetch_assoc($query)){
@@ -196,11 +195,26 @@ ini_set('display_errors',1);
                                             </tr>
                                           </thead>
                                          
-                                     <tbody> 
+                                      
+                                       <!--<div class="table-responsive">-->
+                                            <!-- <table class="table table-hover table-bordered">
+                                                   <tr> <td></td>
+                                                        <td>Block</td>
+                                                        <td>Lot</td>
+                                                        <td>Ward</td>
+                                                        <td>Address</td>
+                                                        <td>Street</td>
+                                                        <td>Zip Code</td>
+                                                        <td>Boarded</td>
+                                                        <td>Sign Posted</td>
+                                                        <td>Descriptions</td>
+                                                        <td>Comments</td>
+                                                        <td>Photo</td>
+                                                    </tr> -->
                                     
                                         <?php
+                                        echo '<tr>';
                                         foreach($result as $key=>$value){
-                                            if($_SESSION['USERID'] = $value["LUSERID"]){
                                                 $property_id = $value["PROPID"];
                                                 print("&nbsp;");
                                             
@@ -237,6 +251,7 @@ ini_set('display_errors',1);
                                                       }
                                                       while (sizeof($string) != 0){
                                                         $img = array_pop($string);
+
                                                       ?> 
                                                       <html>
                                                           <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -262,22 +277,14 @@ ini_set('display_errors',1);
                                                       
                                                   }//***********************end image processing******************    
                                                   else{
-														echo "<td> </td>";
+                                                    
                                                     
                                                     }
-                                                echo '</tr>';   
+                                                echo '<tr>';   
                                             }
                                         }
                                 }
-                                else
-                                {
-                                    echo '<tr>
-                                            <td> No Records found</td>
-                                            </tr>';
-                                }
-                            }
                         ?>
-</tbody>
 </table>
             </div>
         </div>
@@ -315,13 +322,13 @@ ini_set('display_errors',1);
 
                 });
             $('#prettyTable').dataTable(
-                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
-                        //"iDisplayLength" : 5
-                       // "aoColumns": [null,
-                         //             {"mData":null,
-                        //                "sDefaultContent": "Edit"
-                           //           }
-                             //       ]
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+                        "iDisplayLength" : 5,
+                        "aoColumns": [null,
+                                      {"mData":null,
+                                        "sDefaultContent": "Edit"
+                                      }
+                                    ]
                         });  
         })</script>
 

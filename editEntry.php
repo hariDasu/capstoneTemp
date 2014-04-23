@@ -6,38 +6,6 @@ if (!isset($_SESSION['AUTH']))
     session_destroy();
     header('Location: signIn.html');
 }
-   
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
-    <title>Spot The Lot - City of Paterson</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/bootstrap-switch.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-default navbar" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="splash.php">Spot The Lot - City of Paterson</a>
-        </div>
-      </div>
-    </div><!--/.navbar-collapse -->
-
-
-<?php
 
      /**
       * This function can be used to check the sanity of variables
@@ -82,7 +50,7 @@ if (!isset($_SESSION['AUTH']))
     ini_set('display_errors',1);
     error_reporting(E_ALL);
 
-        if(isset($_POST['back']))
+    if(isset($_POST['back']))
     {
         if($_SESSION['UTYPE']=="1"){
             header("Location: splashPublic.php");
@@ -249,6 +217,10 @@ if(isset($_POST['writeRecord'])) {
                     WHERE PROPID = '$PROPID'");
                 $rowtot = 0;
                 while($row=mysqli_fetch_assoc($query)){
+					if ($_SESSION['UTYPE'] == '1' && $_SESSION['USERID'] !== $row['LUSERID'] )	
+					{
+						header('Location: denied.php');
+					}
                     $BLOCK=$row["BLOCK"];
                     $LOT=$row["LOT"];
                     $WARD=$row["WARD"];
@@ -301,7 +273,33 @@ if(isset($_POST['writeRecord'])) {
 	}
 	$SIGNSEL .= ">No</option></select>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
+    <title>Spot The Lot - City of Paterson</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-switch.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="splash.php">Spot The Lot - City of Paterson</a>
+        </div>
+      </div>
+    </div><!--/.navbar-collapse -->
+	
 <link type="text/css" href="css/jquery.datepick.css" rel="stylesheet">
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>

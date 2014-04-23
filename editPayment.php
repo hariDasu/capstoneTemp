@@ -5,6 +5,10 @@
 		session_destroy();
 		header('Location: signIn.html');
 	}
+	if ($_SESSION['UTYPE'] == '1')
+	{
+		header('Location: denied.php');
+	}
 	 /**
 	  * This function can be used to check the sanity of variables
 	  *
@@ -273,7 +277,7 @@ $(function() {
 		<div class="form-group">
             <label class="col-sm-3 control-label">Payment Amount</label>
             <div class="col-sm-2">
-			  <input class="form-control" type='number' 	id='inputPAmount' name='inputPAmount' value='<?php echo "$PAMOUNT" ?>' pattern=".{3,}" required title="Payment Amount is a required field"'>
+			  <input class="form-control" type='number' 	id='inputPAmount' name='inputPAmount' value='<?php echo "$PAMOUNT" ?>' pattern='[0-9]+([\.|,][0-9]+)?' step='0.01' required title="Payment Amount is a required field"'>
             </div>
 		</div>
 	

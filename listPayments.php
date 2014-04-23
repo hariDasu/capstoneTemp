@@ -1,6 +1,18 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
 <body>
-<table>
+<br>
+<br>
+<?php 
+	print("<a class='btn btn-success' href='editPayment.php?noticeid=".$inc_id."&paymentid=new'>New Payment</a>");
+?>
+<table cellpadding="0" cellspacing="0" border="0" id="prettyTable2" class="table table-hover table-bordered" width="100%">
 <?php
+		if ($_SESSION['UTYPE'] == '1')
+		{
+			header('Location: denied.php');
+		}
 		/* This code assumes the following variables are set before running.
 			$inc_id = set to the noticeid of the payments we are listing
 		*/
@@ -9,7 +21,6 @@
 
 		//session_start();
 		
-		print("<tr><td><a href='editPayment.php?noticeid=".$inc_id."&paymentid=new'>New Payment</a></td><tr>");
 		$query=mysqli_query($sql, "
 			SELECT * 
 			FROM `PAYMENTS` 
@@ -55,3 +66,12 @@
 	?>
 </table>
 </body>
+</div>
+</div>
+</div>
+<script>
+ $('#prettyTable2').dataTable(
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+                        });  
+        })</script>
+		

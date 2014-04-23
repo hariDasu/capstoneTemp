@@ -60,6 +60,7 @@ else
 		{
 			$verFail = file_get_contents('verFail.html');
 			echo "$verFail";
+		}
 	}
 	else
 	{

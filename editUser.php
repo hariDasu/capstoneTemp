@@ -5,6 +5,10 @@
 		session_destroy();
 		header('Location: signIn.html');
 	}
+	if ($_SESSION['UTYPE'] != '3' && $_SESSION['USERID'] !== $_REQUEST['userid'] && trim($_SESSION['USERID']) !== trim($_POST['inputUserID']))	
+	{
+		header('Location: denied.php');
+	}
 	 /**
 	  * This function can be used to check the sanity of variables
 	  *
