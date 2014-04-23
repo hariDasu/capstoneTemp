@@ -262,7 +262,7 @@ ini_set('display_errors',1);
                                                                    }
                                                               ?>
                                                                 </div> 
-                                                             <a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a></td>
+                                                             <a data-toggle="modal" href="#imgModal"><img class="img-responsive" src="<?php echo $filePath.$img; ?>" width="30" height="30" ></a>
                                                         
                                                           
                                                       </html>
