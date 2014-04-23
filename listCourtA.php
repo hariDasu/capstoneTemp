@@ -77,19 +77,18 @@ ini_set('display_errors',1);
                 <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
             
         
-            </div>
-        </form>
+               
         <?php 
         if ($_SESSION['UTYPE'] > 1)
             {
                 print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='btn-group'>
+                    
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
-                            </div>
+                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
+                    </div>
                     ");
                     
                 
@@ -101,15 +100,10 @@ ini_set('display_errors',1);
                         <div class='form-group'>
                             &nbsp;
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
-                        </div>
-                    </form>
 
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='editCAction.php?courtid=new'>New Court Action</a>
                         </div>
                     </form>
+                    <br><br><br><br>
                     ");
             }
             
