@@ -80,18 +80,7 @@ ini_set('display_errors',1);
             </div>
         </form>
         <?php 
-            if ($_SESSION['UTYPE'] == 3)
-            {
-                print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='listUsers.php'>User Administration</a>
-                        </div>
-                    </form>
-                    ");
-            }
-            if ($_SESSION['UTYPE'] > 1)
+        if ($_SESSION['UTYPE'] > 1)
             {
                 print("
                     <form class='navbar-form navbar-right' role='form'>
@@ -99,11 +88,24 @@ ini_set('display_errors',1);
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
+                            </div>
                     </form>
                     ");
                     
                 
             }
+            if ($_SESSION['UTYPE'] == 3)
+            {
+                print("
+                    <form class='navbar-form navbar-left' role='form'>
+                        <div class='form-group'>
+                            &nbsp;
+                            <a class='btn btn-success' href='listUsers.php'>User Administration</a>
+                        </div>
+                    </form>
+                    ");
+            }
+            
             
         ?>
     </div>
@@ -112,7 +114,7 @@ ini_set('display_errors',1);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            	<a class="btn btn-success" href='editCAction.php?courtid=new'>New Court Action</a>
+            	<a class="btn btn-success pull-right" href='editCAction.php?courtid=new'>New Court Action</a>
 				<br>
             	<table cellpadding="0" cellspacing="0" border="0" id="prettyTable" class="table table-hover table-bordered" width="100%">
 				<thead>
