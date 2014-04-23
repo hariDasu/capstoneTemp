@@ -149,20 +149,18 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                 <a class="btn btn-default" href="<?php echo( "editUser.php?userid=".$_SESSION['USERID']) ?>">Edit User Account</a>
             
         
-            </div>
-        </form>
+            
         <?php 
         if ($_SESSION['UTYPE'] > 1)
             {
                 print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='btn-group'>
+                    
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
                             <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
-                    <br><br>
+                    </div>
                     ");
                     
                 
