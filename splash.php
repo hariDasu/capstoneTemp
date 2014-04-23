@@ -176,12 +176,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                         </div>
                     </form>
 
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='editCAction.php?courtid=new'>New Court Action</a>
-                        </div>
-                    </form>
+                    
                     ");
             }
             
