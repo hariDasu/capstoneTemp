@@ -94,7 +94,7 @@ ini_set('display_errors',1);
             if ($_SESSION['UTYPE'] == 3)
             {
                 print("
-                    <form class='navbar-form navbar-right' role='form'>
+                    <form class='navbar-form navbar-left' role='form'>
                         <div class='form-group'>
                             &nbsp;
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
