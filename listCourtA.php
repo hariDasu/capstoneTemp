@@ -107,7 +107,7 @@ ini_set('display_errors',1);
                     <form class='navbar-form navbar-right' role='form'>
                         <div class='form-group'>
                             &nbsp;
-                            <a class='btn btn-success pull-right' href='editCAction.php?courtid=new'>New Court Action</a>
+                            <a class='btn btn-success' href='editCAction.php?courtid=new'>New Court Action</a>
                         </div>
                     </form>
                     ");
