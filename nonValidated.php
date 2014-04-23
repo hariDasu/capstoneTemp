@@ -195,25 +195,12 @@ ini_set('display_errors',1);
                                             </tr>
                                           </thead>
                                          
-                                      
-                                       <!--<div class="table-responsive">-->
-                                            <!-- <table class="table table-hover table-bordered">
-                                                   <tr> <td></td>
-                                                        <td>Block</td>
-                                                        <td>Lot</td>
-                                                        <td>Ward</td>
-                                                        <td>Address</td>
-                                                        <td>Street</td>
-                                                        <td>Zip Code</td>
-                                                        <td>Boarded</td>
-                                                        <td>Sign Posted</td>
-                                                        <td>Descriptions</td>
-                                                        <td>Comments</td>
-                                                        <td>Photo</td>
-                                                    </tr> -->
+                                     <tbody> 
+                                         
+                                     
                                     
                                         <?php
-                                        echo '<tr>';
+                                        
                                         foreach($result as $key=>$value){
                                                 $property_id = $value["PROPID"];
                                                 print("&nbsp;");
@@ -277,7 +264,7 @@ ini_set('display_errors',1);
                                                       
                                                   }//***********************end image processing******************    
                                                   else{
-                                                    
+                                                    echo "<td> </td>";
                                                     
                                                     }
                                                 echo '<tr>';   
@@ -322,13 +309,13 @@ ini_set('display_errors',1);
 
                 });
             $('#prettyTable').dataTable(
-                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
-                        "iDisplayLength" : 5,
-                        "aoColumns": [null,
-                                      {"mData":null,
-                                        "sDefaultContent": "Edit"
-                                      }
-                                    ]
+                        {"aLengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+                        //"iDisplayLength" : 5
+                       // "aoColumns": [null,
+                         //             {"mData":null,
+                        //                "sDefaultContent": "Edit"
+                           //           }
+                             //       ]
                         });  
         })</script>
 
