@@ -273,10 +273,10 @@ ini_set('display_errors',1);
                                                       
                                                   }//***********************end image processing******************    
                                                   else{
-                                                    echo "<td> </td>";
+                                                    echo "<td> ";
                                                     
                                                     }
-                                                echo '<tr>';   
+                                                
                                             }
                                         }
                                 }
