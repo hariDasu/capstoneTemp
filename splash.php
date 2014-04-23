@@ -152,18 +152,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
             </div>
         </form>
         <?php 
-            if ($_SESSION['UTYPE'] == 3)
-            {
-                print("
-                    <form class='navbar-form navbar-right' role='form'>
-                        <div class='form-group'>
-                            &nbsp;
-                            <a class='btn btn-success' href='listUsers.php'>User Administration</a>
-                        </div>
-                    </form>
-                    ");
-            }
-            if ($_SESSION['UTYPE'] > 1)
+        if ($_SESSION['UTYPE'] > 1)
             {
                 print("
                     <form class='navbar-form navbar-right' role='form'>
@@ -177,6 +166,18 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                     
                 
             }
+            if ($_SESSION['UTYPE'] == 3)
+            {
+                print("
+                    <form class='navbar-form navbar-right' role='form'>
+                        <div class='form-group'>
+                            &nbsp;
+                            <a class='btn btn-success' href='listUsers.php'>User Administration</a>
+                        </div>
+                    </form>
+                    ");
+            }
+            
             
         ?>
             </div>
