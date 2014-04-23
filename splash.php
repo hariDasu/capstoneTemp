@@ -160,7 +160,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                             <a class='btn btn-default' href='listCourtA.php'>Create/Edit Court Actions</a>
                             <a class='btn btn-default' href='listNotices.php'>Create/Edit Notices</a>
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
-                            </div>
+                            <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
                     ");
                     
@@ -175,8 +175,6 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                             <a class='btn btn-success' href='listUsers.php'>User Administration</a>
                         </div>
                     </form>
-
-                    <br><br><br>
                     ");
             }
             
