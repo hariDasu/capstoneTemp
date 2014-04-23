@@ -162,6 +162,7 @@ echo "$username"; ?></b>&nbsp;&nbsp;
                             <a class='btn btn-default' href='listOwners.php'>Create/Edit Owners</a>
                             <a class='btn btn-default' href='nonValidated.php'>View Unverified Listings</a>
                     </form>
+                    <br><br>
                     ");
                     
                 
